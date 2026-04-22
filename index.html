@@ -25,11 +25,8 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 /* ── Header ── */
 .hdr{background:var(--hdr);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,.6)}
 .hdr-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--hh);padding:0 24px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-mark{width:38px;height:38px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;color:#111;flex-shrink:0;letter-spacing:-.5px}
-.logo-text{display:flex;flex-direction:column;gap:1px}
-.logo-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--gold);line-height:1;letter-spacing:.5px}
-.logo-sub{font-size:9px;color:var(--muted-lt);text-transform:uppercase;letter-spacing:2px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{height:48px;width:auto;display:block;object-fit:contain}
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-phone{display:flex;align-items:center;gap:6px;color:#ccc;text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .hdr-phone:hover{color:var(--gold)}
@@ -179,7 +176,7 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 /* ── Responsive ── */
 @media(max-width:640px){
   :root{--hh:58px}
-  .logo-name{font-size:17px}
+  .logo img{height:38px}
   .hdr-phone span{display:none}
   .hero-in h2{font-size:30px}
   .stats{gap:22px}
@@ -199,11 +196,7 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 <header class="hdr">
   <div class="hdr-in">
     <a class="logo" href="#">
-      <div class="logo-mark">BC</div>
-      <div class="logo-text">
-        <span class="logo-name">Best Cars 254</span>
-        <span class="logo-sub">Japan Auto Export</span>
-      </div>
+      <img src="logos/bestcars254-logo.png" alt="Best Cars 254 — Japan Auto Export" height="48" width="auto">
     </a>
     <div class="hdr-right">
       <a class="hdr-phone" href="tel:+254734010654">
@@ -312,7 +305,7 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 <main class="main" id="listings">
   <div class="results-bar">
     <div class="res-count">Showing <b id="shown-count">931</b> vehicles</div>
-    <div class="live-pill"><span class="live-dot"></span> Updated 22 Apr 2026, 22:50</div>
+    <div class="live-pill"><span class="live-dot"></span> Updated 22 Apr 2026, 23:01</div>
   </div>
   <div class="grid" id="car-grid">
     <div class="car-card" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2024">
@@ -22684,7 +22677,7 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 <!-- ── Footer ── -->
 <footer>
   <div class="footer-in">
-    <div class="foot-logo">Best Cars 254</div>
+    <div class="foot-logo"><img src="logos/bestcars254-logo.png" alt="Best Cars 254" style="height:64px;width:auto;display:inline-block;margin-bottom:4px"></div>
     <div class="foot-tag">Japan Auto Export &nbsp;&middot;&nbsp; Quality Cars to Kenya</div>
     <div class="foot-contact">
       <a href="tel:+254734010654"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +254 734 010654</a>

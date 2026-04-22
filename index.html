@@ -78,15 +78,20 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 .filter-scroll{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;align-items:center}
 .filter-scroll::-webkit-scrollbar{display:none}
 .filter-lbl{font-size:9px;font-weight:600;color:var(--muted-lt);text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap;flex-shrink:0;margin-right:6px}
-.fbtn{display:flex;align-items:center;gap:6px;padding:6px 13px;border-radius:5px;border:1.5px solid #2a2a2a;background:#1a1a1a;color:#888;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .18s;white-space:nowrap;flex-shrink:0;line-height:1}
-.fbtn:hover{border-color:var(--gold);color:#ddd;background:#222}
+.fbtn{display:flex;align-items:center;gap:7px;padding:6px 12px 6px 8px;border-radius:6px;border:1.5px solid #2a2a2a;background:#1a1a1a;color:#888;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .18s;white-space:nowrap;flex-shrink:0;line-height:1}
+.fbtn:hover{border-color:var(--gold);color:#ddd;background:#242424}
 .fbtn.active{background:var(--gold);border-color:var(--gold);color:#111;font-weight:700}
-.fbtn.active .flogo{background:rgba(0,0,0,.15);color:#111}
-.fcnt{font-size:10px;opacity:.65;margin-left:1px}
-.flogo{width:22px;height:22px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:#fff}
-.flogo img{width:18px;height:18px;object-fit:contain;display:block}
-.flogo.no-img{background:#444;color:#fff;font-size:7px;font-weight:800;letter-spacing:-.2px}
-.fbtn.active .flogo{background:rgba(255,255,255,.9)}
+.fcnt{font-size:10px;opacity:.6;margin-left:2px}
+/* Logo wrapper — dark bg so white-filtered PNGs show up */
+.flogo{width:26px;height:26px;border-radius:4px;background:#2a2a2a;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;transition:background .18s}
+.fbtn.active .flogo{background:rgba(0,0,0,.18)}
+/* PNG logo — white filter on dark, removed when active (gold bg) */
+.flogo img{width:20px;height:20px;object-fit:contain;display:block;filter:brightness(0) invert(1);transition:filter .18s;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
+.fbtn.active .flogo img{filter:brightness(0)}
+.fbtn:hover .flogo img{filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg)}
+/* Text-only fallback for "ALL" and "Economy" */
+.flogo-txt{width:26px;height:26px;border-radius:4px;background:#333;color:#aaa;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;flex-shrink:0;letter-spacing:-.3px;line-height:1;transition:all .18s}
+.fbtn.active .flogo-txt{background:rgba(0,0,0,.18);color:#111}
 
 /* Brand color mirrors for card badges */
 .bdg-brand.b-toyota{background:rgba(235,10,30,.1);color:#c00;border-color:rgba(235,10,30,.2)}
@@ -287,19 +292,19 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 <div class="filter-bar">
   <div class="filter-scroll">
     <span class="filter-lbl">Brand</span>
-    <button class="fbtn active" data-filter="all" onclick="applyBrandFilter(this)"><span class="flogo no-img" style="background:#555;color:#fff;font-size:8px;font-weight:800">ALL</span>All Brands<span class="fcnt">931</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Toyota" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/toyota.com" alt="Toyota" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='T'"></span>Toyota<span class="fcnt">120</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Mazda" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/mazda.com" alt="Mazda" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='M'"></span>Mazda<span class="fcnt">60</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Nissan" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/nissan.com" alt="Nissan" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='N'"></span>Nissan<span class="fcnt">20</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Subaru" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/subaru.com" alt="Subaru" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='S'"></span>Subaru<span class="fcnt">20</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Mercedes" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/mercedes-benz.com" alt="Mercedes" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='MB'"></span>Mercedes<span class="fcnt">154</span></button>
-    <button class="fbtn" data-filter="brand" data-value="BMW" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/bmw.com" alt="BMW" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='BMW'"></span>BMW<span class="fcnt">160</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Audi" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/audi.com" alt="Audi" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='A'"></span>Audi<span class="fcnt">88</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Land Rover" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/landrover.com" alt="Land Rover" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='LR'"></span>Land Rover<span class="fcnt">89</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Jeep" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/jeep.com" alt="Jeep" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='J'"></span>Jeep<span class="fcnt">20</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Porsche" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/porsche.com" alt="Porsche" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='P'"></span>Porsche<span class="fcnt">60</span></button>
-    <button class="fbtn" data-filter="brand" data-value="Volvo" onclick="applyBrandFilter(this)"><span class="flogo"><img src="https://logo.clearbit.com/volvocars.com" alt="Volvo" loading="lazy" onerror="this.parentNode.classList.add('no-img');this.parentNode.textContent='V'"></span>Volvo<span class="fcnt">60</span></button>
-    <button class="fbtn" data-filter="category" data-value="economy" onclick="applyBrandFilter(this)"><span class="flogo no-img">EC</span>Economy<span class="fcnt">200</span></button>
+    <button class="fbtn active" data-filter="all" onclick="applyBrandFilter(this)"><span class="flogo-txt" style="background:#444;color:#ccc">ALL</span>All Brands <span class="fcnt">(931)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Toyota" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/toyota.png" alt="Toyota logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>T</span>'"></span>Toyota <span class="fcnt">(120)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Mazda" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/mazda.png" alt="Mazda logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>M</span>'"></span>Mazda <span class="fcnt">(60)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Nissan" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/nissan.png" alt="Nissan logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>N</span>'"></span>Nissan <span class="fcnt">(20)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Subaru" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/subaru.png" alt="Subaru logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>S</span>'"></span>Subaru <span class="fcnt">(20)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Mercedes" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/mercedes.png" alt="Mercedes logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>MB</span>'"></span>Mercedes <span class="fcnt">(154)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="BMW" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/bmw.png" alt="BMW logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>BMW</span>'"></span>BMW <span class="fcnt">(160)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Audi" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/audi.png" alt="Audi logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>A</span>'"></span>Audi <span class="fcnt">(88)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Land Rover" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/landrover.png" alt="Land Rover logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>LR</span>'"></span>Land Rover <span class="fcnt">(89)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Jeep" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/jeep.png" alt="Jeep logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>J</span>'"></span>Jeep <span class="fcnt">(20)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Porsche" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/porsche.png" alt="Porsche logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>P</span>'"></span>Porsche <span class="fcnt">(60)</span></button>
+    <button class="fbtn" data-filter="brand" data-value="Volvo" onclick="applyBrandFilter(this)"><span class="flogo"><img src="logos/volvo.png" alt="Volvo logo" width="20" height="20" onerror="this.outerHTML='<span class=flogo-txt>V</span>'"></span>Volvo <span class="fcnt">(60)</span></button>
+    <button class="fbtn" data-filter="category" data-value="economy" onclick="applyBrandFilter(this)"><span class="flogo-txt">EC</span>Economy <span class="fcnt">(200)</span></button>
   </div>
 </div>
 
@@ -307,7 +312,7 @@ footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 <main class="main" id="listings">
   <div class="results-bar">
     <div class="res-count">Showing <b id="shown-count">931</b> vehicles</div>
-    <div class="live-pill"><span class="live-dot"></span> Updated 22 Apr 2026, 22:43</div>
+    <div class="live-pill"><span class="live-dot"></span> Updated 22 Apr 2026, 22:50</div>
   </div>
   <div class="grid" id="car-grid">
     <div class="car-card" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2024">

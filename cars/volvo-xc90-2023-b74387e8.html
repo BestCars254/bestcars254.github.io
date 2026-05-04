@@ -111,6 +111,14 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 .dp-spec-table td:first-child{font-size:11px;font-weight:600;color:var(--muted-lt);padding:9px 10px;width:45%;border-bottom:1px solid #1e1e1e}
 .dp-spec-table td:last-child{font-size:13px;font-weight:600;color:#ddd;padding:9px 10px;border-bottom:1px solid #1e1e1e}
 
+/* ── Features block ── */
+.dp-features{background:#161616;border:1.5px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px}
+.dp-features-lbl{font-size:9px;font-weight:700;color:var(--muted-lt);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.dp-feat-row,.dp-trust-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.dp-trust-row{margin-bottom:0}
+.bdg-trust{background:rgba(37,211,102,.1);color:#1a8a45;border-color:rgba(37,211,102,.3)}
+.dp-no-feat{font-size:12px;color:var(--muted-lt);font-style:italic}
+
 /* ── Similar cars ── */
 .dp-similar{max-width:1280px;margin:0 auto;padding:0 24px 52px}
 .dp-sec-hl{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#fff;margin-bottom:20px}
@@ -226,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="dp-badges">
       <span class="bdg bdg-avail">Available for Order</span>
       <span class="bdg bdg-brand b-volvo">Volvo</span>
-      
+      <span class="bdg bdg-feat">&#8857; 4WD / AWD</span>
     </div>
     <h1 class="dp-title">2023 Volvo XC90</h1>
     <p class="dp-variant">ULTIMATE B5 AWD</p>
@@ -251,17 +259,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <tr><td>Fuel Type</td><td>Petrol</td></tr>
         <tr><td>Transmission</td><td>AT</td></tr>
         <tr><td>Engine</td><td>2000cc</td></tr>
-        <tr><td>Drive System</td><td>2WD</td></tr>
+        <tr><td>Drive System</td><td>4WD / AWD</td></tr>
         <tr><td>Repair History</td><td>Contact for details</td></tr>
       </tbody>
     </table>
+
+    
+<div class="dp-features">
+  <div class="dp-features-lbl">Features &amp; Equipment</div>
+  <div class='dp-feat-row'><span class="bdg bdg-feat">&#8857; 4WD / AWD</span></div>
+  
+</div>
   </div>
 </div>
 
 
 <div class="dp-similar">
   <h2 class="dp-sec-hl">More <em>Volvo</em> Cars</h2>
-  <div class="dp-sim-grid"><div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2021" data-price="20348.0" data-mileage="0" data-features="">
+  <div class="dp-sim-grid"><div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2021" data-price="20348.0" data-mileage="0" data-features="4wd">
   <a href="../cars/volvo-xc60-2021-5f444f05.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/5f444f059cc581.jpg" alt="Volvo XC60" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
   <div class="card-body">
     <div class="card-badges">
@@ -289,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
-<div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2025" data-price="44222.0" data-mileage="0" data-features="">
+<div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2025" data-price="44222.0" data-mileage="0" data-features="4wd">
   <a href="../cars/volvo-xc60-2025-8f3e5a89.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/8f3e5a893ffe51.jpg" alt="Volvo XC60" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
   <div class="card-body">
     <div class="card-badges">
@@ -345,7 +360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
-<div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2025" data-price="45055.0" data-mileage="0" data-features="">
+<div class="car-card" data-brand="Volvo" data-category="luxury" data-fuel="Petrol" data-year="2025" data-price="45055.0" data-mileage="0" data-features="4wd">
   <a href="../cars/volvo-xc60-2025-00d519c5.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/00d519c5925bf9.jpg" alt="Volvo XC60" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
   <div class="card-body">
     <div class="card-badges">

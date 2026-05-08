@@ -156,6 +156,44 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 .car-card.featured:hover{box-shadow:0 12px 36px rgba(0,0,0,.45),0 0 0 3px rgba(201,168,76,.55)}
 .bdg-featured{background:rgba(201,168,76,.15);color:#9a7820;border-color:rgba(201,168,76,.4);font-weight:800}
 
+/* ── Quote Modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+.modal-overlay.hidden{display:none}
+.modal-box{background:#1a1a1a;border:1.5px solid #C9A84C;border-radius:14px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.75)}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:#888;font-size:26px;cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color .15s;z-index:2}
+.modal-close:hover{color:#fff}
+.modal-head{padding:28px 28px 10px}
+.modal-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:4px}
+.modal-sub{font-size:12px;color:#aaa}
+.modal-body{padding:6px 28px 28px}
+.mf-row{margin-bottom:14px}
+.mf-label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#aaa;margin-bottom:5px}
+.mf-input{width:100%;background:#111;border:1.5px solid #2a2a2a;color:#ddd;padding:10px 13px;border-radius:7px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.mf-input:focus{border-color:#C9A84C}
+.mf-input::placeholder{color:#555}
+textarea.mf-input{resize:vertical;min-height:80px}
+.mf-radio-group,.mf-check-group{display:flex;flex-wrap:wrap;gap:7px;margin-top:5px}
+.mf-radio-opt,.mf-check-opt{display:flex;align-items:center;gap:7px;background:#111;border:1.5px solid #2a2a2a;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:12px;color:#bbb;transition:all .15s;user-select:none}
+.mf-radio-opt:hover,.mf-check-opt:hover{border-color:#C9A84C;color:#fff}
+.mf-radio-opt input,.mf-check-opt input{accent-color:#C9A84C;cursor:pointer;width:14px;height:14px;flex-shrink:0}
+.mf-radio-opt.selected,.mf-check-opt.checked{border-color:#C9A84C;background:rgba(201,168,76,.1);color:#e0c06a}
+.btn-submit-quote{width:100%;padding:14px;background:#C9A84C;color:#111;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;letter-spacing:.5px;cursor:pointer;transition:background .15s,transform .1s;margin-top:6px}
+.btn-submit-quote:hover{background:#e0c06a;transform:translateY(-1px)}
+.btn-submit-quote:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.mf-privacy{text-align:center;font-size:10px;color:#555;margin-top:8px}
+.modal-success{display:none;text-align:center;padding:48px 28px}
+.modal-success.show{display:block}
+.success-check{width:64px;height:64px;border-radius:50%;background:rgba(37,211,102,.12);border:2px solid rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.success-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#fff;margin-bottom:8px}
+.success-body{font-size:13px;color:#aaa;line-height:1.65;margin-bottom:10px}
+.success-ref{font-size:11px;color:#C9A84C;font-weight:600;margin-bottom:24px}
+.btn-close-success{padding:10px 32px;background:#C9A84C;color:#111;border:none;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px}
+.btn-quote{display:flex;align-items:center;justify-content:center;width:100%;padding:12px;background:#C9A84C;color:#111;border:none;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,transform .1s;font-family:'Barlow Condensed',sans-serif;letter-spacing:.4px}
+.btn-quote:hover{background:#e0c06a;transform:translateY(-1px)}
+.btn-quote-dp{display:flex;align-items:center;justify-content:center;width:100%;padding:15px;background:#C9A84C;color:#111;border:none;border-radius:8px;font-size:16px;font-weight:800;cursor:pointer;transition:background .15s,transform .1s;font-family:'Barlow Condensed',sans-serif;letter-spacing:.4px;margin-bottom:20px}
+.btn-quote-dp:hover{background:#e0c06a;transform:translateY(-1px)}
+@media(max-width:600px){.modal-overlay{padding:0;align-items:flex-end}.modal-box{max-height:95vh;border-radius:14px 14px 0 0;max-width:100%}}
+
 /* ── Footer ── */
 footer{background:#0d0d0d;border-top:2px solid var(--gold);padding:36px 24px}
 .footer-in{max-width:1280px;margin:0 auto;text-align:center}
@@ -250,10 +288,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="dp-landed">Estimated landed cost in Nairobi: <strong style="color:#ccc">contact us</strong></p>
     </div>
 
-    <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%2C%20I%27m%20interested%20in%20the%202019%20Audi%20Q5%20Black%20M%20listed%20on%20your%20website.%20Can%20you%20send%20me%20the%20full%20landed%20cost%20to%20Nairobi%3F%20https%3A//bestcars254.co.ke/cars/audi-q5-2019-af7b6092.html" class="btn-wa-dp" target="_blank" rel="noopener"
-       onclick="fbq('track','Lead')">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> &nbsp;Enquire on WhatsApp
-    </a>
+    <button class="btn-quote-dp"
+       data-display="Audi Q5" data-year="2019"
+       data-url="https://bestcars254.co.ke/cars/audi-q5-2019-af7b6092.html" data-brand="Audi"
+       onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">
+      Get a Quote
+    </button>
 
     <table class="dp-spec-table">
       <thead><tr><th>Specification</th><th>Details</th></tr></thead>
@@ -304,7 +344,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="price-note">Price negotiable — contact us on WhatsApp</p>
     <div class="card-actions">
-      <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%2C%20I%27m%20interested%20in%20the%202022%20Audi%20Q5%20White%20M%20listed%20on%20your%20website.%20Can%20you%20send%20me%20the%20full%20landed%20cost%20to%20Nairobi%3F%20https%3A//bestcars254.co.ke/cars/audi-q5-2022-bad2462b.html" class="btn-wa" target="_blank" rel="noopener" onclick="fbq('track','Lead')"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Order on WhatsApp</a>
+      <button class="btn-quote" data-display="Audi Q5" data-year="2022" data-url="https://bestcars254.co.ke/cars/audi-q5-2022-bad2462b.html" data-brand="Audi" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/audi-q5-2022-bad2462b.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
@@ -332,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="price-note">Price negotiable — contact us on WhatsApp</p>
     <div class="card-actions">
-      <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%2C%20I%27m%20interested%20in%20the%202021%20Audi%20Q5%20Gray%20M%20listed%20on%20your%20website.%20Can%20you%20send%20me%20the%20full%20landed%20cost%20to%20Nairobi%3F%20https%3A//bestcars254.co.ke/cars/audi-q5-2021-3b1b16fe.html" class="btn-wa" target="_blank" rel="noopener" onclick="fbq('track','Lead')"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Order on WhatsApp</a>
+      <button class="btn-quote" data-display="Audi Q5" data-year="2021" data-url="https://bestcars254.co.ke/cars/audi-q5-2021-3b1b16fe.html" data-brand="Audi" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/audi-q5-2021-3b1b16fe.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
@@ -360,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="price-note">Price negotiable — contact us on WhatsApp</p>
     <div class="card-actions">
-      <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%2C%20I%27m%20interested%20in%20the%202020%20Audi%20Q5%20White%20listed%20on%20your%20website.%20Can%20you%20send%20me%20the%20full%20landed%20cost%20to%20Nairobi%3F%20https%3A//bestcars254.co.ke/cars/audi-q5-2020-d1208af5.html" class="btn-wa" target="_blank" rel="noopener" onclick="fbq('track','Lead')"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Order on WhatsApp</a>
+      <button class="btn-quote" data-display="Audi Q5" data-year="2020" data-url="https://bestcars254.co.ke/cars/audi-q5-2020-d1208af5.html" data-brand="Audi" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/audi-q5-2020-d1208af5.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
@@ -388,7 +428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="price-note">Price negotiable — contact us on WhatsApp</p>
     <div class="card-actions">
-      <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%2C%20I%27m%20interested%20in%20the%202020%20Audi%20Q5%20Light%20Blue%20M%20listed%20on%20your%20website.%20Can%20you%20send%20me%20the%20full%20landed%20cost%20to%20Nairobi%3F%20https%3A//bestcars254.co.ke/cars/audi-q5-2020-a32e74c9.html" class="btn-wa" target="_blank" rel="noopener" onclick="fbq('track','Lead')"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Order on WhatsApp</a>
+      <button class="btn-quote" data-display="Audi Q5" data-year="2020" data-url="https://bestcars254.co.ke/cars/audi-q5-2020-a32e74c9.html" data-brand="Audi" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/audi-q5-2020-a32e74c9.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
@@ -440,6 +480,161 @@ function nextPhoto() {
   document.getElementById('dp-main-img').src = src;
   document.querySelectorAll('.dp-thumb').forEach((t,i) => t.classList.toggle('active', i===current));
 }
+</script>
+<!-- ── Quote Modal ── -->
+<div class="modal-overlay hidden" id="quote-modal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQuoteModal()" aria-label="Close">&times;</button>
+    <div class="modal-success" id="modal-success">
+      <div class="success-check">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="success-title" id="success-name-msg">Thank you!</div>
+      <div class="success-body">We&#8217;ve received your enquiry and will contact you within 24 hours.</div>
+      <div class="success-ref" id="success-ref">Reference: BC254-XXXXXX</div>
+      <button class="btn-close-success" onclick="closeQuoteModal()">Close</button>
+    </div>
+    <div id="modal-form-wrap">
+      <div class="modal-head">
+        <div class="modal-title" id="modal-title">Get a Quote</div>
+        <div class="modal-sub">We&#8217;ll get back to you within 24 hours</div>
+      </div>
+      <div class="modal-body">
+        <form id="quote-form">
+          <input type="hidden" name="access_key" value="a8f22b6f-a50d-4b24-9425-8a914f1bcb02">
+          <input type="hidden" name="subject" value="New Lead — Best Cars 254">
+          <input type="hidden" name="from_name" value="Best Cars 254 Website">
+          <input type="hidden" id="hf-car-model" name="car_model" value="">
+          <input type="hidden" id="hf-car-url" name="car_page_url" value="">
+          <input type="hidden" id="hf-submitted-at" name="submitted_at" value="">
+          <div class="mf-row">
+            <label class="mf-label" for="mf-name">Full Name *</label>
+            <input class="mf-input" type="text" name="full_name" id="mf-name" placeholder="Your full name" required>
+          </div>
+          <div class="mf-row">
+            <label class="mf-label" for="mf-phone">Phone Number *</label>
+            <input class="mf-input" type="tel" name="phone" id="mf-phone" placeholder="+254 7XX XXX XXX" required>
+          </div>
+          <div class="mf-row">
+            <label class="mf-label" for="mf-email">Email Address *</label>
+            <input class="mf-input" type="email" name="email" id="mf-email" placeholder="your@email.com" required>
+          </div>
+          <div class="mf-row">
+            <label class="mf-label">Buyer Type *</label>
+            <div class="mf-radio-group" id="buyer-type-group">
+              <label class="mf-radio-opt"><input type="radio" name="buyer_type" value="Private Buyer" required> Private Buyer</label>
+              <label class="mf-radio-opt"><input type="radio" name="buyer_type" value="Car Dealer / Logistician"> Car Dealer / Logistician</label>
+            </div>
+          </div>
+          <div class="mf-row">
+            <label class="mf-label">Cars Interested In</label>
+            <div class="mf-check-group" id="cars-check-group">
+              <label class="mf-check-opt" data-val="Toyota Harrier"><input type="checkbox" name="cars_interested" value="Toyota Harrier"> Toyota Harrier</label>
+              <label class="mf-check-opt" data-val="Land Cruiser Prado"><input type="checkbox" name="cars_interested" value="Land Cruiser Prado"> Land Cruiser Prado</label>
+              <label class="mf-check-opt" data-val="Land Cruiser 300/250"><input type="checkbox" name="cars_interested" value="Land Cruiser 300/250"> Land Cruiser 300/250</label>
+              <label class="mf-check-opt" data-val="Mazda CX-5"><input type="checkbox" name="cars_interested" value="Mazda CX-5"> Mazda CX-5</label>
+              <label class="mf-check-opt" data-val="Mercedes-Benz"><input type="checkbox" name="cars_interested" value="Mercedes-Benz"> Mercedes-Benz</label>
+              <label class="mf-check-opt" data-val="BMW"><input type="checkbox" name="cars_interested" value="BMW"> BMW</label>
+              <label class="mf-check-opt" data-val="Other"><input type="checkbox" name="cars_interested" value="Other"> Other (specify in comments)</label>
+            </div>
+          </div>
+          <div class="mf-row">
+            <label class="mf-label" for="mf-message">Message / Comments (optional)</label>
+            <textarea class="mf-input" name="message" id="mf-message" placeholder="Color preference, budget, delivery timeline, or any other requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit-quote" id="btn-submit-quote">Send Enquiry</button>
+          <p class="mf-privacy">Your information is private and never shared.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// ── Quote Modal ──────────────────────────────────────────────────────────────
+function openQuoteModal(display, year, pageUrl, brand) {
+  var yr = year ? String(year) : '';
+  document.getElementById('modal-title').textContent =
+    'Get a Quote for this ' + (yr ? yr + ' ' : '') + display;
+  document.getElementById('hf-car-model').value  = (yr ? yr + ' ' : '') + display;
+  document.getElementById('hf-car-url').value    = pageUrl || window.location.href;
+  document.getElementById('hf-submitted-at').value = new Date().toISOString();
+  pretickCarCheckbox(display, brand);
+  document.getElementById('modal-success').classList.remove('show');
+  document.getElementById('modal-form-wrap').style.display = '';
+  var btn = document.getElementById('btn-submit-quote');
+  if (btn) { btn.disabled = false; btn.textContent = 'Send Enquiry'; }
+  document.getElementById('quote-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeQuoteModal() {
+  document.getElementById('quote-modal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('quote-modal')) closeQuoteModal();
+}
+
+function pretickCarCheckbox(display, brand) {
+  document.querySelectorAll('#cars-check-group .mf-check-opt').forEach(function(lbl) {
+    lbl.querySelector('input').checked = false;
+    lbl.classList.remove('checked');
+  });
+  var d = (display || '').toLowerCase();
+  var b = (brand   || '').toLowerCase();
+  var val = 'Other';
+  if      (d.indexOf('harrier')     >= 0) val = 'Toyota Harrier';
+  else if (d.indexOf('prado')       >= 0) val = 'Land Cruiser Prado';
+  else if (d.indexOf('land cruiser')>= 0) val = 'Land Cruiser 300/250';
+  else if (d.indexOf('cx-5')        >= 0) val = 'Mazda CX-5';
+  else if (b === 'mercedes')               val = 'Mercedes-Benz';
+  else if (b === 'bmw')                    val = 'BMW';
+  var opt = document.querySelector('#cars-check-group .mf-check-opt[data-val="' + val + '"]');
+  if (opt) { opt.querySelector('input').checked = true; opt.classList.add('checked'); }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var rg = document.getElementById('buyer-type-group');
+  if (rg) rg.addEventListener('change', function() {
+    rg.querySelectorAll('.mf-radio-opt').forEach(function(o) {
+      o.classList.toggle('selected', o.querySelector('input').checked);
+    });
+  });
+  var cg = document.getElementById('cars-check-group');
+  if (cg) cg.addEventListener('change', function() {
+    cg.querySelectorAll('.mf-check-opt').forEach(function(o) {
+      o.classList.toggle('checked', o.querySelector('input').checked);
+    });
+  });
+  var form = document.getElementById('quote-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('btn-submit-quote');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d.success) {
+          var name = (document.getElementById('mf-name').value || '').split(' ')[0] || 'there';
+          var ref  = 'BC254-' + (Math.floor(Math.random() * 900000) + 100000);
+          document.getElementById('success-name-msg').textContent = 'Thank you, ' + name + '!';
+          document.getElementById('success-ref').textContent = 'Reference: ' + ref;
+          document.getElementById('modal-form-wrap').style.display = 'none';
+          document.getElementById('modal-success').classList.add('show');
+        } else {
+          alert('Something went wrong. Please try again or contact us on WhatsApp.');
+          btn.disabled = false; btn.textContent = 'Send Enquiry';
+        }
+      })
+      .catch(function() {
+        alert('Network error. Please try again.');
+        btn.disabled = false; btn.textContent = 'Send Enquiry';
+      });
+  });
+});
 </script>
 </body>
 </html>

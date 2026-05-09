@@ -406,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <option value="year-desc">Year: Newest First</option>
         <option value="year-asc">Year: Oldest First</option>
       </select>
-      <div class="live-pill"><span class="live-dot"></span> 09 May 2026, 09:43</div>
+      <div class="live-pill"><span class="live-dot"></span> 09 May 2026, 09:47</div>
     </div>
   </div>
   <div class="grid" id="car-grid">
@@ -26633,6 +26633,16 @@ function sortGrid() {
   const mode  = document.getElementById('sel-sort').value;
   const cards = Array.from(grid.querySelectorAll('.car-card'));
 
+  // Stamp each card with a random shuffle value ONCE per page load.
+  // This mixes brands within the same score tier so the listing feels
+  // fresh on every visit ("Harrier ★, Prado ★, CX-5 ★, BMW X5, …")
+  // instead of grouping all cars of the same model together.
+  cards.forEach(c => {
+    if (c.dataset.shuffle === undefined || c.dataset.shuffle === '') {
+      c.dataset.shuffle = String(Math.floor(Math.random() * 10) + 1);
+    }
+  });
+
   cards.sort((a, b) => {
     const ap  = parseFloat(a.dataset.price)    || 0;
     const bp  = parseFloat(b.dataset.price)    || 0;
@@ -26642,13 +26652,18 @@ function sortGrid() {
     const by  = parseInt(b.dataset.year)       || 0;
     const apr = parseInt(a.dataset.priority)   || 50;
     const bpr = parseInt(b.dataset.priority)   || 50;
+    const ash = parseInt(a.dataset.shuffle)    || 0;
+    const bsh = parseInt(b.dataset.shuffle)    || 0;
 
     if (mode === 'recommended') {
-      // Tier DESC → price ASC within tier (no-price cars sink to bottom)
-      if (bpr !== apr) return bpr - apr;
-      if (!ap && bp)  return 1;
-      if (ap && !bp)  return -1;
-      return ap - bp;
+      // Recommended = priority (tier + sunroof bonus) + shuffle (1-10), DESC
+      // Cars with no price always sink to the very bottom.
+      const aHasPrice = ap > 0;
+      const bHasPrice = bp > 0;
+      if (aHasPrice !== bHasPrice) return aHasPrice ? -1 : 1;
+      const aScore = apr + ash;
+      const bScore = bpr + bsh;
+      return bScore - aScore;
     }
     const apx = ap || 999999;
     const bpx = bp || 999999;

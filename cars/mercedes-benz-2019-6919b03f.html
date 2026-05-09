@@ -264,11 +264,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
 <div class="dp-gallery">
   <div class="dp-main-wrap">
-    <img id="dp-main-img" class="dp-main-img" src="../images/6919b03f2c3771.jpg"
+    <img id="dp-main-img" class="dp-main-img" src="../images/6919b03f2c3771/photo_1.jpg"
          alt="Mercedes GLC-Class 2019">
-    
+    <button class="dp-arr dp-arr-l" onclick="prevPhoto()">&#8249;</button><button class="dp-arr dp-arr-r" onclick="nextPhoto()">&#8250;</button>
   </div>
-  
+  <div class='dp-thumbs'><img class="dp-thumb active" src="../images/6919b03f2c3771/photo_1.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_1.jpg')" alt="Photo 1" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_2.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_2.jpg')" alt="Photo 2" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_3.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_3.jpg')" alt="Photo 3" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_4.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_4.jpg')" alt="Photo 4" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_5.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_5.jpg')" alt="Photo 5" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_6.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_6.jpg')" alt="Photo 6" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_7.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_7.jpg')" alt="Photo 7" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_8.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_8.jpg')" alt="Photo 8" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_9.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_9.jpg')" alt="Photo 9" loading="lazy"><img class="dp-thumb" src="../images/6919b03f2c3771/photo_10.jpg" onclick="switchPhoto(this,'../images/6919b03f2c3771/photo_10.jpg')" alt="Photo 10" loading="lazy"></div>
 </div>
   </div>
 
@@ -284,7 +284,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="dp-price-box">
       <div class="dp-price">USD 24,593</div><div class="dp-price-lbl">FOB Japan Port</div>
-      <p class="dp-price-note">Price negotiable — contact us on WhatsApp</p>
+      <p class="dp-price-note">Price negotiable — get a quote below</p>
       <p class="dp-landed">Estimated landed cost in Nairobi: <strong style="color:#ccc">contact us</strong></p>
     </div>
 
@@ -457,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-const PHOTOS = ["../images/6919b03f2c3771.jpg"];
+const PHOTOS = ["../images/6919b03f2c3771/photo_1.jpg", "../images/6919b03f2c3771/photo_2.jpg", "../images/6919b03f2c3771/photo_3.jpg", "../images/6919b03f2c3771/photo_4.jpg", "../images/6919b03f2c3771/photo_5.jpg", "../images/6919b03f2c3771/photo_6.jpg", "../images/6919b03f2c3771/photo_7.jpg", "../images/6919b03f2c3771/photo_8.jpg", "../images/6919b03f2c3771/photo_9.jpg", "../images/6919b03f2c3771/photo_10.jpg"];
 let   current = 0;
 
 function switchPhoto(thumb, src) {

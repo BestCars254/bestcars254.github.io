@@ -264,11 +264,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
 <div class="dp-gallery">
   <div class="dp-main-wrap">
-    <img id="dp-main-img" class="dp-main-img" src="../images/76f2f0d981950d.jpg"
+    <img id="dp-main-img" class="dp-main-img" src="../images/76f2f0d981950d/photo_1.jpg"
          alt="Mercedes C-Class 2020">
-    
+    <button class="dp-arr dp-arr-l" onclick="prevPhoto()">&#8249;</button><button class="dp-arr dp-arr-r" onclick="nextPhoto()">&#8250;</button>
   </div>
-  
+  <div class='dp-thumbs'><img class="dp-thumb active" src="../images/76f2f0d981950d/photo_1.jpg" onclick="switchPhoto(this,'../images/76f2f0d981950d/photo_1.jpg')" alt="Photo 1" loading="lazy"><img class="dp-thumb" src="../images/76f2f0d981950d/photo_2.jpg" onclick="switchPhoto(this,'../images/76f2f0d981950d/photo_2.jpg')" alt="Photo 2" loading="lazy"><img class="dp-thumb" src="../images/76f2f0d981950d/photo_3.jpg" onclick="switchPhoto(this,'../images/76f2f0d981950d/photo_3.jpg')" alt="Photo 3" loading="lazy"><img class="dp-thumb" src="../images/76f2f0d981950d/photo_4.jpg" onclick="switchPhoto(this,'../images/76f2f0d981950d/photo_4.jpg')" alt="Photo 4" loading="lazy"><img class="dp-thumb" src="../images/76f2f0d981950d/photo_5.jpg" onclick="switchPhoto(this,'../images/76f2f0d981950d/photo_5.jpg')" alt="Photo 5" loading="lazy"></div>
 </div>
   </div>
 
@@ -456,7 +456,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-const PHOTOS = ["../images/76f2f0d981950d.jpg"];
+const PHOTOS = ["../images/76f2f0d981950d/photo_1.jpg", "../images/76f2f0d981950d/photo_2.jpg", "../images/76f2f0d981950d/photo_3.jpg", "../images/76f2f0d981950d/photo_4.jpg", "../images/76f2f0d981950d/photo_5.jpg"];
 let   current = 0;
 
 function switchPhoto(thumb, src) {

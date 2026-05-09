@@ -264,11 +264,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
 <div class="dp-gallery">
   <div class="dp-main-wrap">
-    <img id="dp-main-img" class="dp-main-img" src="../images/d52d37e4465d3f.jpg"
+    <img id="dp-main-img" class="dp-main-img" src="../images/d52d37e4465d3f/photo_1.jpg"
          alt="Mercedes C-Class 2022">
-    
+    <button class="dp-arr dp-arr-l" onclick="prevPhoto()">&#8249;</button><button class="dp-arr dp-arr-r" onclick="nextPhoto()">&#8250;</button>
   </div>
-  
+  <div class='dp-thumbs'><img class="dp-thumb active" src="../images/d52d37e4465d3f/photo_1.jpg" onclick="switchPhoto(this,'../images/d52d37e4465d3f/photo_1.jpg')" alt="Photo 1" loading="lazy"><img class="dp-thumb" src="../images/d52d37e4465d3f/photo_2.jpg" onclick="switchPhoto(this,'../images/d52d37e4465d3f/photo_2.jpg')" alt="Photo 2" loading="lazy"></div>
 </div>
   </div>
 
@@ -456,7 +456,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-const PHOTOS = ["../images/d52d37e4465d3f.jpg"];
+const PHOTOS = ["../images/d52d37e4465d3f/photo_1.jpg", "../images/d52d37e4465d3f/photo_2.jpg"];
 let   current = 0;
 
 function switchPhoto(thumb, src) {

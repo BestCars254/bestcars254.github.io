@@ -95,11 +95,44 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 
 /* ── Price box ── */
 .dp-price-box{background:#161616;border:1.5px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:20px}
-.dp-price{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--gold);letter-spacing:.5px;line-height:1}
-.dp-price-lbl{font-size:10px;color:var(--muted-lt);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px}
+.dp-price{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:#d4541b;letter-spacing:.5px;line-height:1}
+.dp-price-row{display:flex;gap:14px;margin-top:6px;flex-wrap:wrap}
+.dp-price-alt{font-size:13px;color:#ccc;font-weight:600}
+.dp-price-lbl{font-size:10px;color:var(--muted-lt);text-transform:uppercase;letter-spacing:1.2px;margin-top:8px}
 .dp-price-na{font-size:18px;color:var(--muted-lt);font-style:italic}
 .dp-price-note{font-size:11px;color:var(--muted-lt);margin-top:8px;font-style:italic}
 .dp-landed{font-size:12px;color:var(--muted-lt);margin-top:4px}
+
+/* ── Total Price Calculator ── */
+.dp-calc{background:#141414;border:1.5px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:22px}
+.dp-calc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:6px}
+.dp-calc-head h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;letter-spacing:.3px}
+.dp-calc-est{font-size:10px;color:var(--muted-lt);font-style:italic}
+.dp-calc-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.dp-calc-row{display:flex;flex-direction:column;gap:3px;font-size:10px;color:var(--muted-lt);text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+.dp-calc-row select{background:#1c1c1c;border:1.5px solid #333;color:#ddd;padding:7px 26px 7px 9px;border-radius:5px;font-size:12px;font-family:'Inter',sans-serif;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='%23888'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;text-transform:none;letter-spacing:0;font-weight:500}
+.dp-calc-opts{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.dp-calc-opts label{display:flex;align-items:center;gap:7px;font-size:12px;color:#bbb;cursor:pointer}
+.dp-calc-opts input{accent-color:#d4541b;width:14px;height:14px}
+.dp-calc-lines{list-style:none;margin-bottom:13px;padding:0}
+.dp-calc-lines li{display:flex;justify-content:space-between;font-size:12px;color:#bbb;padding:5px 0;border-bottom:1px solid #1c1c1c}
+.dp-calc-lines li:last-child{border-bottom:none}
+.dp-calc-lines li span:last-child{color:#eee;font-weight:600;font-variant-numeric:tabular-nums}
+.dp-calc-total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 14px;background:#191919;border:1.5px solid var(--gold);border-radius:7px;margin-bottom:12px}
+.dp-calc-tot-lbl{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;font-weight:700}
+.dp-calc-tot-val{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#fff;letter-spacing:.4px}
+.dp-calc-cta{margin-bottom:0!important}
+
+/* ── Mobile sticky CTA bar (detail page) ── */
+.dp-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:#0d0d0d;border-top:1.5px solid var(--gold);padding:10px 12px;gap:8px;z-index:300;box-shadow:0 -4px 20px rgba(0,0,0,.6)}
+.dp-sticky-wa{flex:0 0 44%;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;background:var(--green);color:#fff;border:none;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Inter',sans-serif}
+.dp-sticky-quote{flex:1;padding:12px;background:var(--gold);color:#111;border:none;border-radius:7px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.4px}
+@media(max-width:780px){
+  .dp-sticky-cta{display:flex}
+  body{padding-bottom:72px}
+  .dp-calc-controls{grid-template-columns:1fr}
+  .dp-calc-opts{grid-template-columns:1fr}
+}
 
 /* ── WA button ── */
 .btn-wa-dp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:var(--green);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .15s,transform .1s;font-family:'Barlow Condensed',sans-serif;letter-spacing:.4px;margin-bottom:20px}
@@ -125,27 +158,37 @@ body{background:var(--page);font-family:'Inter','Segoe UI',sans-serif;min-height
 .dp-sec-hl em{color:var(--gold);font-style:normal}
 .dp-sim-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
 
-/* ── Card styles (copied from index) ── */
+/* ── Card styles (mirror of index) ── */
 .card-photo-link{display:block;text-decoration:none}
-.car-card{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .2s ease,box-shadow .2s ease;border:1px solid #e8e8e8}
+.car-card{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .2s ease,box-shadow .2s ease;border:1px solid #e8e8e8;display:flex;flex-direction:column}
 .car-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.45),0 0 0 2px rgba(201,168,76,.35)}
-.card-photo-wrap{width:100%;height:200px;overflow:hidden;background:#e8e8e8}
-.car-photo{width:100%;height:200px;object-fit:cover;display:block;transition:transform .3s ease}
-.car-card:hover .car-photo{transform:scale(1.03)}
-.car-photo-ph{width:100%;height:200px;background:#efefef;display:flex;align-items:center;justify-content:center}
-.card-body{padding:14px 16px 16px}
+.card-photo-stack{position:relative}
+.card-photo-wrap{width:100%;height:210px;overflow:hidden;background:#e8e8e8}
+.car-photo{width:100%;height:210px;object-fit:cover;display:block;transition:transform .3s ease}
+.car-card:hover .car-photo{transform:scale(1.04)}
+.car-photo-ph{width:100%;height:210px;background:#efefef;display:flex;align-items:center;justify-content:center}
+.card-ribbon{position:absolute;top:10px;left:0;background:#0a7d3a;color:#fff;font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 9px 4px 10px;display:inline-flex;align-items:center;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,.25);border-radius:0 4px 4px 0}
+.card-fav{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);border:none;font-size:16px;line-height:1;cursor:pointer;color:#666;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:all .15s}
+.card-fav:hover{transform:scale(1.1);background:#fff;color:#e0245e}
+.card-fav.fav-on{color:#e0245e;background:#fff}
+.card-fav.fav-on::before{content:"\2665"}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
 .card-badges{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap}
-.card-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:var(--card-text);line-height:1.15;margin-bottom:2px}
-.card-variant{font-size:10px;color:var(--muted-d);margin-bottom:10px;min-height:14px}
-.spec-grid{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-l)}
-.spec-grid li{display:flex;flex-direction:column;gap:1px}
-.sl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted-d)}
-.sv{font-size:11px;font-weight:600;color:var(--card-text)}
-.card-price-row{margin-bottom:4px}
-.price-val{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--gold)}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--card-text);line-height:1.1;margin-bottom:2px}
+.card-year{color:var(--gold);font-weight:700}
+.card-variant{font-size:10px;color:var(--muted-d);margin-bottom:3px;min-height:14px}
+.card-ref{font-size:10px;color:var(--muted-d);margin-bottom:10px}
+.card-ref b{color:#444;font-weight:700;letter-spacing:.4px}
+.mini-specs{list-style:none;display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid var(--border-l)}
+.mini-specs li{font-size:10px;color:#444;background:#f5f3ee;border:1px solid #e8e0d0;border-radius:3px;padding:3px 7px;font-weight:500}
+.card-price-row{margin-bottom:3px}
+.price-block{display:flex;flex-direction:column;gap:1px}
+.price-main{font-family:'Barlow Condensed',sans-serif;font-size:23px;font-weight:800;color:#d4541b;line-height:1.1}
+.price-sub{font-size:10px;color:var(--muted-d);font-weight:500}
+.price-tag{display:inline-block;font-size:8px;color:var(--gold);background:rgba(201,168,76,.1);padding:1px 5px;border-radius:2px;margin-left:3px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
 .price-na{font-size:12px;color:var(--muted-d);font-style:italic}
-.price-note{font-size:10px;color:var(--muted-d);margin-bottom:10px;font-style:italic}
-.card-actions{display:flex;flex-direction:column;gap:6px}
+.price-note{font-size:10px;color:var(--muted-d);margin:3px 0 10px}
+.card-actions{display:flex;flex-direction:column;gap:6px;margin-top:auto}
 .btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px;background:var(--green);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s;font-family:'Inter',sans-serif}
 .btn-wa:hover{background:var(--green-h)}
 .btn-details{display:flex;align-items:center;justify-content:center;width:100%;padding:9px;background:transparent;color:var(--gold);border:1.5px solid rgba(201,168,76,.4);border-radius:7px;font-size:12px;font-weight:600;text-decoration:none;transition:all .15s;font-family:'Inter',sans-serif}
@@ -283,9 +326,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="dp-variant">Z</p>
 
     <div class="dp-price-box">
-      <div class="dp-price">USD 25,003</div><div class="dp-price-lbl">FOB Japan Port</div>
-      <p class="dp-price-note">Price negotiable — get a quote below</p>
-      <p class="dp-landed">Estimated landed cost in Nairobi: <strong style="color:#ccc">contact us</strong></p>
+      <div class="dp-price">KES 3,225,387</div><div class="dp-price-row"><span class="dp-price-alt">USD 25,003</span><span class="dp-price-alt">JPY 3,800,456</span></div><div class="dp-price-lbl">FOB Japan Port</div>
+      <p class="dp-price-note">Price negotiable &middot; full breakdown below</p>
     </div>
 
     <button class="btn-quote-dp"
@@ -294,6 +336,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">
       Get a Quote
     </button>
+
+    
+<div class="dp-calc" id="dp-calc">
+  <div class="dp-calc-head">
+    <h3>Total Landed Cost Calculator</h3>
+    <span class="dp-calc-est">Estimates only &middot; confirm via quote</span>
+  </div>
+  <div class="dp-calc-controls">
+    <label class="dp-calc-row">
+      <span>Destination</span>
+      <select id="calc-dest" onchange="recalcTotal()">
+        <option value="mombasa" selected>Mombasa Port</option>
+        <option value="nairobi">Nairobi (incl. inland)</option>
+      </select>
+    </label>
+    <label class="dp-calc-row">
+      <span>Shipping</span>
+      <select id="calc-ship" onchange="recalcTotal()">
+        <option value="roro" selected>RoRo (USD 1,800)</option>
+        <option value="container">Container Share (USD 2,400)</option>
+      </select>
+    </label>
+    <label class="dp-calc-row">
+      <span>Currency</span>
+      <select id="calc-cur" onchange="recalcTotal()">
+        <option value="KES" selected>KES</option>
+        <option value="USD">USD</option>
+        <option value="JPY">JPY</option>
+      </select>
+    </label>
+  </div>
+  <div class="dp-calc-opts">
+    <label><input type="checkbox" id="calc-insurance" checked onchange="recalcTotal()"> Marine Insurance</label>
+    <label><input type="checkbox" id="calc-inspection" checked onchange="recalcTotal()"> JEVIC Inspection</label>
+    <label><input type="checkbox" id="calc-cert" checked onchange="recalcTotal()"> Export Certificate</label>
+    <label><input type="checkbox" id="calc-warranty" onchange="recalcTotal()"> Warranty Pack</label>
+  </div>
+  <ul class="dp-calc-lines" id="calc-lines"></ul>
+  <div class="dp-calc-total">
+    <span class="dp-calc-tot-lbl">Total Landed</span>
+    <span class="dp-calc-tot-val" id="calc-total">&mdash;</span>
+  </div>
+  <button class="btn-quote-dp dp-calc-cta"
+          data-display="Toyota Harrier" data-year="2021"
+          data-url="https://bestcars254.co.ke/cars/toyota-harrier-2021-5c04f1bb.html" data-brand="Toyota"
+          onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">
+    Confirm Total &amp; Get Quote
+  </button>
+</div>
+<script>
+const FOB_USD   = 25003.00;
+const RORO_USD  = 1800;
+const CONT_USD  = 2400;
+const INS_PCT   = 0.015;
+const JEVIC_USD = 200;
+const CERT_USD  = 50;
+const WAR_USD   = 300;
+const KRA_PCT   = 0.35;
+const KES_RATE  = 129.0;
+const JPY_RATE  = 152.0;
+const NAIROBI_INLAND_USD = 350;
+function fmt(v, cur){
+  if (cur === 'KES') return 'KES ' + Math.round(v * KES_RATE).toLocaleString();
+  if (cur === 'JPY') return 'JPY ' + Math.round(v * JPY_RATE).toLocaleString();
+  return 'USD ' + Math.round(v).toLocaleString();
+}
+function recalcTotal(){
+  if (FOB_USD <= 0) return;
+  const ship  = document.getElementById('calc-ship').value === 'roro' ? RORO_USD : CONT_USD;
+  const cur   = document.getElementById('calc-cur').value;
+  const dest  = document.getElementById('calc-dest').value;
+  const ins   = document.getElementById('calc-insurance').checked ? (FOB_USD + ship) * INS_PCT : 0;
+  const insp  = document.getElementById('calc-inspection').checked ? JEVIC_USD : 0;
+  const cert  = document.getElementById('calc-cert').checked      ? CERT_USD  : 0;
+  const war   = document.getElementById('calc-warranty').checked  ? WAR_USD   : 0;
+  const cif   = FOB_USD + ship + ins;
+  const kra   = cif * KRA_PCT;
+  const inland= dest === 'nairobi' ? NAIROBI_INLAND_USD : 0;
+  const total = cif + insp + cert + war + kra + inland;
+  const lines = [
+    ['Car Price (FOB Japan)', FOB_USD],
+    ['Sea Freight (' + (document.getElementById('calc-ship').value === 'roro' ? 'RoRo' : 'Container Share') + ')', ship],
+  ];
+  if (ins)   lines.push(['Marine Insurance (1.5%)', ins]);
+  if (insp)  lines.push(['JEVIC Inspection',        insp]);
+  if (cert)  lines.push(['Export Certificate',      cert]);
+  if (war)   lines.push(['Warranty Pack',           war]);
+  lines.push(['Kenya Duty + VAT + IDF (est.)', kra]);
+  if (inland) lines.push(['Inland Transport to Nairobi', inland]);
+  document.getElementById('calc-lines').innerHTML =
+    lines.map(l => '<li><span>'+l[0]+'</span><span>'+fmt(l[1], cur)+'</span></li>').join('');
+  document.getElementById('calc-total').textContent = fmt(total, cur);
+}
+document.addEventListener('DOMContentLoaded', recalcTotal);
+</script>
+
 
     <table class="dp-spec-table">
       <thead><tr><th>Specification</th><th>Details</th></tr></thead>
@@ -321,112 +459,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="dp-similar">
   <h2 class="dp-sec-hl">More <em>Toyota</em> Cars</h2>
-  <div class="dp-sim-grid"><div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2026" data-price="139555.0" data-mileage="0" data-features="back_camera bluetooth navigation smart_key" data-priority="100">
-  <a href="../cars/toyota-harrier-2026-41a95d0f.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/41a95d0ff6be87/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+  <div class="dp-sim-grid"><div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2026" data-price="139555.0" data-mileage="0" data-features="back_camera bluetooth navigation smart_key" data-priority="100" data-ref="BC254-41A95D">
+  <div class="card-photo-stack">
+    <a href="../cars/toyota-harrier-2026-41a95d0f.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/41a95d0ff6be87/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+    <span class="card-ribbon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> DIRECT FROM JAPAN</span>
+    <button class="card-fav" type="button" aria-label="Save to favorites"
+            data-ref="BC254-41A95D" onclick="toggleFav(this,event)">&#9825;</button>
+  </div>
   <div class="card-body">
     <div class="card-badges">
-      <span class="bdg bdg-avail">Available for Order</span>
       <span class="bdg bdg-brand b-toyota">Toyota</span>
       <span class="bdg bdg-featured">&#9733; Featured</span>
     </div>
-    <h3 class="card-title">Toyota Harrier</h3>
+    <h3 class="card-title">Toyota Harrier<span class="card-year"> 2026</span></h3>
     <p class="card-variant">G</p>
-    <ul class="spec-grid">
-      <li><span class="sl">Year</span><span class="sv">2026</span></li>
-      <li><span class="sl">Mileage</span><span class="sv">9 km</span></li>
-      <li><span class="sl">Color</span><span class="sv">Pearl White</span></li>
-      <li><span class="sl">Fuel</span><span class="sv">Petrol</span></li>
-      <li><span class="sl">Trans.</span><span class="sv">AT</span></li>
-      <li><span class="sl">Engine</span><span class="sv">2000cc</span></li>
+    <p class="card-ref">Ref: <b>BC254-41A95D</b></p>
+    <ul class="mini-specs">
+      <li>&#9202; 2026</li>
+      <li>&#8633; 9 km</li>
+      <li>&#9881; 2000cc</li>
+      <li>&#8703; AT</li>
+      <li>&#8857; 2WD</li>
     </ul>
     <div class="card-price-row">
-      <span class="price-val">FOB Japan: USD 139,555</span>
+      <div class="price-block"><div class="price-main">KES 18,002,595</div><div class="price-sub">USD 139,555 <span class="price-tag">FOB Japan</span></div></div>
     </div>
-    <p class="price-note">Price negotiable — get a quote below</p>
+    <p class="price-note">Price negotiable &#183; CIF Mombasa available</p>
     <div class="card-actions">
       <button class="btn-quote" data-display="Toyota Harrier" data-year="2026" data-url="https://bestcars254.co.ke/cars/toyota-harrier-2026-41a95d0f.html" data-brand="Toyota" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/toyota-harrier-2026-41a95d0f.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
 </div>
-<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2026" data-price="139555.0" data-mileage="0" data-features="leather" data-priority="100">
-  <a href="../cars/toyota-harrier-2026-a4f479da.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/a4f479dae9ee5a/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2026" data-price="139555.0" data-mileage="0" data-features="leather" data-priority="100" data-ref="BC254-A4F479">
+  <div class="card-photo-stack">
+    <a href="../cars/toyota-harrier-2026-a4f479da.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/a4f479dae9ee5a/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+    <span class="card-ribbon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> DIRECT FROM JAPAN</span>
+    <button class="card-fav" type="button" aria-label="Save to favorites"
+            data-ref="BC254-A4F479" onclick="toggleFav(this,event)">&#9825;</button>
+  </div>
   <div class="card-body">
     <div class="card-badges">
-      <span class="bdg bdg-avail">Available for Order</span>
       <span class="bdg bdg-brand b-toyota">Toyota</span>
       <span class="bdg bdg-featured">&#9733; Featured</span>
     </div>
-    <h3 class="card-title">Toyota Harrier</h3>
+    <h3 class="card-title">Toyota Harrier<span class="card-year"> 2026</span></h3>
     <p class="card-variant">Z LEATHER PACKAGE</p>
-    <ul class="spec-grid">
-      <li><span class="sl">Year</span><span class="sv">2026</span></li>
-      <li><span class="sl">Mileage</span><span class="sv">15 km</span></li>
-      <li><span class="sl">Color</span><span class="sv">Pearl</span></li>
-      <li><span class="sl">Fuel</span><span class="sv">Petrol</span></li>
-      <li><span class="sl">Trans.</span><span class="sv">AT</span></li>
-      <li><span class="sl">Engine</span><span class="sv">2000cc</span></li>
+    <p class="card-ref">Ref: <b>BC254-A4F479</b></p>
+    <ul class="mini-specs">
+      <li>&#9202; 2026</li>
+      <li>&#8633; 15 km</li>
+      <li>&#9881; 2000cc</li>
+      <li>&#8703; AT</li>
+      <li>&#8857; 2WD</li>
     </ul>
     <div class="card-price-row">
-      <span class="price-val">FOB Japan: USD 139,555</span>
+      <div class="price-block"><div class="price-main">KES 18,002,595</div><div class="price-sub">USD 139,555 <span class="price-tag">FOB Japan</span></div></div>
     </div>
-    <p class="price-note">Price negotiable — get a quote below</p>
+    <p class="price-note">Price negotiable &#183; CIF Mombasa available</p>
     <div class="card-actions">
       <button class="btn-quote" data-display="Toyota Harrier" data-year="2026" data-url="https://bestcars254.co.ke/cars/toyota-harrier-2026-a4f479da.html" data-brand="Toyota" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/toyota-harrier-2026-a4f479da.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
 </div>
-<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2025" data-price="33176.0" data-mileage="0" data-features="back_camera bluetooth led power_seats smart_key" data-priority="100">
-  <a href="../cars/toyota-harrier-2025-b4ad7806.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/b4ad7806f426ee/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2025" data-price="33176.0" data-mileage="0" data-features="back_camera bluetooth led power_seats smart_key" data-priority="100" data-ref="BC254-B4AD78">
+  <div class="card-photo-stack">
+    <a href="../cars/toyota-harrier-2025-b4ad7806.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/b4ad7806f426ee/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+    <span class="card-ribbon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> DIRECT FROM JAPAN</span>
+    <button class="card-fav" type="button" aria-label="Save to favorites"
+            data-ref="BC254-B4AD78" onclick="toggleFav(this,event)">&#9825;</button>
+  </div>
   <div class="card-body">
     <div class="card-badges">
-      <span class="bdg bdg-avail">Available for Order</span>
       <span class="bdg bdg-brand b-toyota">Toyota</span>
       <span class="bdg bdg-featured">&#9733; Featured</span>
     </div>
-    <h3 class="card-title">Toyota Harrier</h3>
+    <h3 class="card-title">Toyota Harrier<span class="card-year"> 2025</span></h3>
     <p class="card-variant">Z</p>
-    <ul class="spec-grid">
-      <li><span class="sl">Year</span><span class="sv">2025</span></li>
-      <li><span class="sl">Mileage</span><span class="sv">5,051 km</span></li>
-      <li><span class="sl">Color</span><span class="sv">Black</span></li>
-      <li><span class="sl">Fuel</span><span class="sv">Petrol</span></li>
-      <li><span class="sl">Trans.</span><span class="sv">AT</span></li>
-      <li><span class="sl">Engine</span><span class="sv">2000cc</span></li>
+    <p class="card-ref">Ref: <b>BC254-B4AD78</b></p>
+    <ul class="mini-specs">
+      <li>&#9202; 2025</li>
+      <li>&#8633; 5,051 km</li>
+      <li>&#9881; 2000cc</li>
+      <li>&#8703; AT</li>
+      <li>&#8857; 2WD</li>
     </ul>
     <div class="card-price-row">
-      <span class="price-val">FOB Japan: USD 33,176</span>
+      <div class="price-block"><div class="price-main">KES 4,279,704</div><div class="price-sub">USD 33,176 <span class="price-tag">FOB Japan</span></div></div>
     </div>
-    <p class="price-note">Price negotiable — get a quote below</p>
+    <p class="price-note">Price negotiable &#183; CIF Mombasa available</p>
     <div class="card-actions">
       <button class="btn-quote" data-display="Toyota Harrier" data-year="2025" data-url="https://bestcars254.co.ke/cars/toyota-harrier-2025-b4ad7806.html" data-brand="Toyota" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/toyota-harrier-2025-b4ad7806.html" class="btn-details">View Details &#8594;</a>
     </div>
   </div>
 </div>
-<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2024" data-price="29236.0" data-mileage="0" data-features="back_camera bluetooth leather led navigation power_seats smart_key" data-priority="100">
-  <a href="../cars/toyota-harrier-2024-76f93c37.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/76f93c37b00c27/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+<div class="car-card featured" data-brand="Toyota" data-category="jsuv" data-fuel="Petrol" data-year="2024" data-price="29236.0" data-mileage="0" data-features="back_camera bluetooth leather led navigation power_seats smart_key" data-priority="100" data-ref="BC254-76F93C">
+  <div class="card-photo-stack">
+    <a href="../cars/toyota-harrier-2024-76f93c37.html" class="card-photo-link"><div class="card-photo-wrap"><img class="car-photo" src="../images/76f93c37b00c27/photo_1.jpg" alt="Toyota Harrier" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="car-photo-ph" style="display:none"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div></div></a>
+    <span class="card-ribbon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> DIRECT FROM JAPAN</span>
+    <button class="card-fav" type="button" aria-label="Save to favorites"
+            data-ref="BC254-76F93C" onclick="toggleFav(this,event)">&#9825;</button>
+  </div>
   <div class="card-body">
     <div class="card-badges">
-      <span class="bdg bdg-avail">Available for Order</span>
       <span class="bdg bdg-brand b-toyota">Toyota</span>
       <span class="bdg bdg-featured">&#9733; Featured</span>
     </div>
-    <h3 class="card-title">Toyota Harrier</h3>
+    <h3 class="card-title">Toyota Harrier<span class="card-year"> 2024</span></h3>
     <p class="card-variant">Z</p>
-    <ul class="spec-grid">
-      <li><span class="sl">Year</span><span class="sv">2024</span></li>
-      <li><span class="sl">Mileage</span><span class="sv">8,710 km</span></li>
-      <li><span class="sl">Color</span><span class="sv">Black</span></li>
-      <li><span class="sl">Fuel</span><span class="sv">Petrol</span></li>
-      <li><span class="sl">Trans.</span><span class="sv">AT</span></li>
-      <li><span class="sl">Engine</span><span class="sv">2000cc</span></li>
+    <p class="card-ref">Ref: <b>BC254-76F93C</b></p>
+    <ul class="mini-specs">
+      <li>&#9202; 2024</li>
+      <li>&#8633; 8,710 km</li>
+      <li>&#9881; 2000cc</li>
+      <li>&#8703; AT</li>
+      <li>&#8857; 2WD</li>
     </ul>
     <div class="card-price-row">
-      <span class="price-val">FOB Japan: USD 29,236</span>
+      <div class="price-block"><div class="price-main">KES 3,771,444</div><div class="price-sub">USD 29,236 <span class="price-tag">FOB Japan</span></div></div>
     </div>
-    <p class="price-note">Price negotiable — get a quote below</p>
+    <p class="price-note">Price negotiable &#183; CIF Mombasa available</p>
     <div class="card-actions">
       <button class="btn-quote" data-display="Toyota Harrier" data-year="2024" data-url="https://bestcars254.co.ke/cars/toyota-harrier-2024-76f93c37.html" data-brand="Toyota" onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">Get a Quote</button>
       <a href="../cars/toyota-harrier-2024-76f93c37.html" class="btn-details">View Details &#8594;</a>
@@ -481,6 +635,18 @@ function nextPhoto() {
   document.querySelectorAll('.dp-thumb').forEach((t,i) => t.classList.toggle('active', i===current));
 }
 </script>
+
+<!-- ── Mobile sticky CTA (only on detail pages) ── -->
+<div class="dp-sticky-cta">
+  <a class="dp-sticky-wa" href="https://wa.me/254734010654?text=Hi%2C%20I%20am%20interested%20in%20the%202021%20Toyota%20Harrier" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
+  <button class="dp-sticky-quote"
+          data-display="Toyota Harrier" data-year="2021"
+          data-url="https://bestcars254.co.ke/cars/toyota-harrier-2021-5c04f1bb.html" data-brand="Toyota"
+          onclick="openQuoteModal(this.dataset.display,this.dataset.year,this.dataset.url,this.dataset.brand);fbq('track','Lead')">
+    Get a Quote
+  </button>
+</div>
+
 <!-- ── Quote Modal ── -->
 <div class="modal-overlay hidden" id="quote-modal" onclick="closeModalOutside(event)">
   <div class="modal-box">

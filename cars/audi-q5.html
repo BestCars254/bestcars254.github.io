@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Audi Q5 for Sale in Kenya | Best Cars 254</title>
-<meta name="description" content="Audi Q5 for sale in Kenya. 20 units available at Japan auctions from KES 2,024,139 &ndash; 6,413,622. Direct import from Japan, full clearance support, real photos within 2 hours.">
+<meta name="description" content="Audi Q5 for sale in Kenya. 20 units available at Japan auctions from USD 15,691 &ndash; 49,718. Direct import from Japan, full clearance support, real photos within 2 hours.">
 <link rel="canonical" href="https://bestcars254.co.ke/cars/audi-q5.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,8 +212,8 @@ textarea.mf-input{resize:vertical;min-height:60px}
       <h1 class="mp-title">Audi Q5 for Sale in Kenya</h1>
       <p class="mp-intro">Quattro AWD, premium interior craftsmanship and refined performance.</p>
       <div class="mp-price-box">
-        <div class="mp-price-main">KES 2,024,139 &ndash; 6,413,622</div>
-        <div class="mp-price-sub">USD 15,691 &ndash; 49,718 &middot; FOB Japan</div>
+        <div class="mp-price-main">USD 15,691 &ndash; 49,718</div>
+        <div class="mp-price-sub">FOB Japan</div>
       </div>
       <div class="mp-quick-grid">
         <div class="mp-quick-stat"><div class="mp-quick-stat-v">20</div><div class="mp-quick-stat-l">At Japan Auctions</div></div>
@@ -243,7 +243,7 @@ textarea.mf-input{resize:vertical;min-height:60px}
 <section class="mp-faq">
   <h2 class="sec-hl">Frequently Asked Questions &mdash; <em>Audi Q5</em></h2>
   <details class="faq-q"><summary>How much does a Audi Q5 cost landed in Kenya?</summary>
-    <p>FOB Japan ranges from KES 2,024,139 &ndash; 6,413,622. Add approximately USD 1,500&ndash;2,200 for RoRo shipping to Mombasa plus Kenya import duty, VAT and IDF (typically 35% of CIF). Send an inquiry below for a fully landed quote in KES specific to your year and trim preference.</p>
+    <p>FOB Japan ranges from USD 15,691 &ndash; 49,718. Add approximately USD 1,500&ndash;2,200 for RoRo shipping to Mombasa plus Kenya import duty, VAT and IDF (typically 35% of CIF). Send an inquiry below for a fully landed quote in USD specific to your year and trim preference.</p>
   </details>
   <details class="faq-q"><summary>What years of Audi Q5 are available?</summary>
     <p>We currently have model years from <strong>2019 &ndash; 2025</strong>. Stock at Japan auctions changes daily &mdash; if your preferred year isn&rsquo;t listed, mention it on the inquiry form and we&rsquo;ll source it specifically.</p>
@@ -255,7 +255,7 @@ textarea.mf-input{resize:vertical;min-height:60px}
     <p>RoRo shipping takes approximately 4&ndash;6 weeks from Japan to Mombasa Port. We handle the full process: Japanese export certificate, JEVIC inspection, bill of lading, and clearance support at Mombasa.</p>
   </details>
   <details class="faq-q"><summary>Do you accept M-Pesa for the deposit?</summary>
-    <p>Yes. The KES 200,000 deposit can be paid via M-Pesa. The remaining CIF balance is typically paid via bank transfer (Wise or SWIFT) for security and tax-record purposes.</p>
+    <p>Yes. The USD 2,000 deposit can be paid via M-Pesa (KES equivalent) or direct bank transfer. The remaining CIF balance is typically paid via bank transfer (Wise or SWIFT) for security and tax-record purposes.</p>
   </details>
 </section>
 
@@ -287,7 +287,7 @@ textarea.mf-input{resize:vertical;min-height:60px}
         <strong style="color:#C9A84C">2 hours</strong> with:
         <ul class="success-list">
           <li>&#10003; <strong>10+ real photos</strong> of available units matching your criteria</li>
-          <li>&#10003; <strong>Personalized quote</strong> with total landed cost in KES</li>
+          <li>&#10003; <strong>Personalized quote</strong> with total landed cost in USD</li>
           <li>&#10003; Available years and mileage options</li>
           <li>&#10003; Answers to any questions you have</li>
         </ul>
@@ -355,14 +355,14 @@ textarea.mf-input{resize:vertical;min-height:60px}
 
           <div class="mf-row">
             <label class="mf-label">Budget Range
-              <span class="mf-slider-val" id="budget-val">KES 1.0M &ndash; 10.0M</span>
+              <span class="mf-slider-val" id="budget-val">USD 5K &ndash; 100K</span>
             </label>
             <div class="mf-dual-slider">
-              <input type="range" id="budget-min" min="1" max="10" step="0.5" value="1" oninput="updateBudget()">
-              <input type="range" id="budget-max" min="1" max="10" step="0.5" value="10" oninput="updateBudget()">
+              <input type="range" id="budget-min" min="5" max="100" step="5" value="5" oninput="updateBudget()">
+              <input type="range" id="budget-max" min="5" max="100" step="5" value="100" oninput="updateBudget()">
             </div>
-            <input type="hidden" name="budget_min_kes" id="hf-budget-min" value="1000000">
-            <input type="hidden" name="budget_max_kes" id="hf-budget-max" value="10000000">
+            <input type="hidden" name="budget_min_usd" id="hf-budget-min" value="5000">
+            <input type="hidden" name="budget_max_usd" id="hf-budget-max" value="100000">
           </div>
 
           <div class="mf-row">
@@ -479,9 +479,9 @@ function updateBudget() {
     document.getElementById('budget-max').value = hi;
   }
   document.getElementById('budget-val').textContent =
-    'KES ' + lo.toFixed(1) + 'M — ' + hi.toFixed(1) + 'M';
-  document.getElementById('hf-budget-min').value = Math.round(lo * 1000000);
-  document.getElementById('hf-budget-max').value = Math.round(hi * 1000000);
+    'USD ' + Math.round(lo).toLocaleString() + 'K — ' + Math.round(hi).toLocaleString() + 'K';
+  document.getElementById('hf-budget-min').value = Math.round(lo * 1000);
+  document.getElementById('hf-budget-max').value = Math.round(hi * 1000);
 }
 function updateMileage() {
   var v = parseInt(document.getElementById('mileage-max').value);

@@ -562,6 +562,58 @@ body.has-sticky-bar{padding-bottom:80px}
 .cp-hero-bg-paperwork{background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=2070&q=80&auto=format&fit=crop')}
 .cp-hero-bg-faq{background-image:url('https://images.unsplash.com/photo-1542362567-b07e54358753?w=2070&q=80&auto=format&fit=crop')}
 
+/* ── Warning callout (Safe Payment Process + Deposit & Refund) ── */
+.cp-warning{background:#FCF1EE;border:1px solid #D6B0A0;border-left:3px solid #A03B2C;border-radius:var(--radius-card);padding:20px 22px;margin:24px 0;font-family:var(--sans);font-size:15px;line-height:1.6;color:#5C2C20}
+.cp-warning strong{color:#3A1B14;font-weight:600}
+.cp-warning .cp-warning-label{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A03B2C;margin-bottom:8px}
+
+/* ── JUMVEA verification link (used in Safe Payment + Process + footer) ── */
+.jumvea-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--accent);border:1px solid var(--accent);padding:10px 18px;border-radius:var(--radius-btn);transition:background var(--transition),color var(--transition);text-decoration:none;letter-spacing:.04em}
+.jumvea-link:hover{background:var(--accent);color:var(--text-primary)}
+.jumvea-link svg{width:14px;height:14px}
+
+/* ── Homepage: Safe Payment Process section ── */
+.safe-payment{background:var(--bg-secondary);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);padding:var(--section-pad-y) 0}
+.safe-payment-in{max-width:880px;margin:0 auto;padding:0 var(--gutter)}
+.safe-payment-head{margin-bottom:28px}
+.safe-payment-head .section-eyebrow{margin-bottom:14px}
+.safe-payment-head h2{font-family:var(--serif);font-size:clamp(28px,3.8vw,40px);font-weight:500;letter-spacing:-.01em;line-height:1.1;color:var(--text-primary);margin-bottom:14px}
+.safe-payment-body{font-family:var(--sans);font-size:17px;line-height:1.7;color:var(--text-primary);margin-bottom:20px}
+.safe-payment-body strong{font-weight:600}
+.safe-payment-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;align-items:center}
+
+/* ── Homepage: Kenya Support section ── */
+.kenya-support{background:var(--bg-surface);padding:var(--section-pad-y) 0}
+.kenya-support-in{max-width:880px;margin:0 auto;padding:0 var(--gutter)}
+.kenya-support h2{font-family:var(--serif);font-size:clamp(28px,3.8vw,40px);font-weight:500;letter-spacing:-.01em;line-height:1.1;color:var(--text-primary);margin-bottom:18px}
+.kenya-support p{font-family:var(--sans);font-size:17px;line-height:1.7;color:var(--text-primary);margin-bottom:16px}
+.kenya-support .kenya-location{font-family:var(--sans);font-size:14px;color:var(--text-muted);padding:18px 20px;background:var(--bg-secondary);border-left:2px solid var(--accent);border-radius:var(--radius-card);margin-top:24px}
+.kenya-support .kenya-location strong{color:var(--text-primary);font-weight:600}
+
+/* ── Footer: social row + legal column ── */
+.footer-social{display:flex;gap:10px;margin-top:18px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(250,250,250,.06);color:rgba(250,250,250,.78);transition:background var(--transition),color var(--transition);text-decoration:none}
+.footer-social a:hover{background:var(--accent);color:var(--bg-primary)}
+.footer-social a svg{width:18px;height:18px;color:inherit}
+.footer-legal-row{display:flex;flex-wrap:wrap;gap:18px;padding:24px 0 0;border-top:1px solid var(--border-dark);margin-top:24px;font-family:var(--sans);font-size:12px;color:rgba(250,250,250,.55);letter-spacing:.04em}
+.footer-legal-row a{color:rgba(250,250,250,.65);text-decoration:none;transition:color var(--transition)}
+.footer-legal-row a:hover{color:var(--text-inverse)}
+
+/* ── Catalog hero disclaimer ── */
+.catalog-disclaimer{font-family:var(--sans);font-size:13px;color:rgba(250,250,250,.65);max-width:680px;margin-top:14px;line-height:1.55}
+
+/* ── Policy pages (privacy, terms, deposit-refund, etc.) ── */
+.policy-body{max-width:760px;margin:0 auto;padding:64px var(--gutter) 96px;font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text-primary)}
+@media(min-width:768px){.policy-body{padding:88px var(--gutter) 128px;font-size:17px}}
+.policy-body > p{margin-bottom:18px}
+.policy-body h2{font-family:var(--serif);font-size:clamp(24px,3vw,30px);font-weight:500;color:var(--text-primary);margin:40px 0 14px;letter-spacing:-.005em;line-height:1.2}
+.policy-body h3{font-family:var(--sans);font-size:17px;font-weight:600;color:var(--text-primary);margin:24px 0 10px}
+.policy-body ul,.policy-body ol{margin:0 0 18px 22px;padding:0}
+.policy-body li{margin-bottom:8px;line-height:1.65}
+.policy-body strong{color:var(--text-primary);font-weight:600}
+.policy-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.policy-meta{font-family:var(--sans);font-size:13px;color:var(--text-muted);padding-bottom:24px;margin-bottom:32px;border-bottom:1px solid var(--border-subtle)}
+
 </style>
 </head>
 <body>
@@ -655,7 +707,7 @@ body.has-sticky-bar{padding-bottom:80px}
           <tr><td>Model years</td><td>2019 – 2025</td></tr>
           <tr><td>Brand</td><td>BMW</td></tr>
           <tr><td>Origin</td><td>Japan auctions</td></tr>
-          <tr><td>Status</td><td>20 at Japan auctions</td></tr>
+          <tr><td>Status</td><td>Available to source</td></tr>
           <tr><td>Common features</td><td>Varies by unit</td></tr>
           <tr><td>Inspection</td><td>QISJ pre-shipment</td></tr>
         </tbody>
@@ -674,14 +726,14 @@ body.has-sticky-bar{padding-bottom:80px}
     <div class="mp-inquire-head">
       <span class="eyebrow">Inquire about this car</span>
       <h2>Tell us what you&rsquo;re looking for.</h2>
-      <p>Our Kenya Sales Team replies on WhatsApp with available units, photos, and a landed quote.</p>
+      <p>Our Kenya team replies on WhatsApp with matching real vehicle options, photos and a CFR Mombasa quotation. Kenya import duty, taxes, clearance, registration and inland delivery are separate.</p>
     </div>
 
     <form id="mp-form" class="cp-form mp-form">
       <input type="hidden" name="access_key" value="a8f22b6f-a50d-4b24-9425-8a914f1bcb02">
       <input type="hidden" name="subject" value="Inquiry: BMW X5. Best Cars 254 website">
       <input type="hidden" name="from_name" value="Best Cars 254 website">
-      <input type="hidden" name="action_needed" value="Reply on WhatsApp within 24 hours with available units.">
+      <input type="hidden" name="action_needed" value="Coordinate matching options with the Japanese exporting partner and reply with private vehicle options and a CFR Mombasa quotation.">
       <input type="hidden" name="lead_score" value="HIGH (model detail page form)">
       <input type="hidden" name="model_of_interest" value="BMW X5">
       <input type="hidden" name="page_url" id="mp-page-url" value="">
@@ -722,7 +774,7 @@ body.has-sticky-bar{padding-bottom:80px}
       </div>
 
       <div class="cp-form-row">
-        <label for="mp-budget">Your budget in KSh <span class="cp-form-hint">delivered to your city</span></label>
+        <label for="mp-budget">Your budget in KSh <span class="cp-form-hint">indicative. CFR Mombasa scope.</span></label>
         <input type="text" inputmode="numeric" name="budget_ksh" id="mp-budget" placeholder="e.g. 2,500,000" required>
       </div>
 
@@ -798,7 +850,15 @@ body.has-sticky-bar{padding-bottom:80px}
     btn.disabled = true;
     btn.textContent = 'Sending...';
     var data = new FormData(form);
-    fetch('https://api.web3forms.com/submit', { method:'POST', body:data })
+    // Set Reply-To so replying to the Web3Forms notification reaches the customer.
+    var emailVal = (document.getElementById('mp-email') || {}).value || '';
+    if (emailVal) data.set('replyto', emailVal);
+    // Set Accept: application/json so Web3Forms returns JSON instead of HTML.
+    fetch('https://api.web3forms.com/submit', {
+      method:  'POST',
+      headers: { 'Accept': 'application/json' },
+      body:    data
+    })
       .then(function(r){ return r.json(); })
       .then(function(d){
         if (d.success) {
@@ -806,16 +866,18 @@ body.has-sticky-bar{padding-bottom:80px}
           document.getElementById('mp-success').classList.add('show');
           if (typeof fbq === 'function') fbq('track', 'Lead', {content_name: 'BMW X5'});
         } else {
-          err.textContent = 'Something went wrong. Please try again.';
+          err.textContent = 'Something went wrong. ' + (d.message || 'Please try again.');
           err.classList.add('show');
           btn.disabled = false;
           btn.textContent = 'Send inquiry';
+          if (typeof console !== 'undefined') console.warn('Web3Forms response:', d);
         }
       })
-      .catch(function(){
-        err.textContent = 'Network error. Please try again.';
+      .catch(function(ex){
+        err.textContent = 'Network error. Please try again or message us on WhatsApp.';
         err.classList.add('show');
         btn.disabled = false;
+        if (typeof console !== 'undefined') console.error('Web3Forms submit failed:', ex);
         btn.textContent = 'Send inquiry';
       });
   });
@@ -826,37 +888,36 @@ body.has-sticky-bar{padding-bottom:80px}
   <div class="mp-timeline-in">
     <div class="mp-timeline-head">
       <span class="eyebrow">How importing this car works</span>
-      <h2>From a Japan auction to your driveway. 45 to 60 days.</h2>
+      <h2>From inquiry to Mombasa. CFR scope.</h2>
     </div>
-    <p style="font-family:var(--sans);font-size:16px;color:var(--text-muted);line-height:1.65;max-width:680px;margin-bottom:32px">Your landed cost is built from the components below. We share the exact figure for the unit you choose, on request.</p>
+    <p style="font-family:var(--sans);font-size:16px;color:var(--text-muted);line-height:1.65;max-width:680px;margin-bottom:32px">Quotations are issued as CFR Mombasa unless stated otherwise in writing. The CFR Mombasa scope covers the components below up to Mombasa Port. Kenya-side charges (import duty, VAT, IDF, customs clearance, registration, inland delivery) are separate. <a href="../import-cost-disclaimer.html" style="color:var(--accent)">Import Cost Disclaimer.</a></p>
     <ul class="mp-cost-list">
-      <li class="mp-cost-item"><span class="mp-cost-num">01</span>Vehicle (auction price)</li>
-      <li class="mp-cost-item"><span class="mp-cost-num">02</span>Japan export documentation</li>
-      <li class="mp-cost-item"><span class="mp-cost-num">03</span>RoRo freight Japan → Mombasa</li>
-      <li class="mp-cost-item"><span class="mp-cost-num">04</span>QISJ inspection certificate</li>
-      <li class="mp-cost-item"><span class="mp-cost-num">05</span>Marine insurance</li>
-      <li class="mp-cost-item"><span class="mp-cost-num">06</span>Kenya import duty, VAT, IDF</li>
+      <li class="mp-cost-item"><span class="mp-cost-num">01</span>Vehicle cost (auction price)</li>
+      <li class="mp-cost-item"><span class="mp-cost-num">02</span>Japan export handling and documentation</li>
+      <li class="mp-cost-item"><span class="mp-cost-num">03</span>Ocean freight Japan to Mombasa</li>
+      <li class="mp-cost-item"><span class="mp-cost-num">04</span>QISJ inspection arranged before shipment</li>
     </ul>
+    <p style="font-family:var(--sans);font-size:14px;color:var(--text-muted);line-height:1.6;max-width:680px;margin-top:18px">Kenya import duty, VAT, IDF, customs clearance, registration and inland delivery are separate from the CFR Mombasa quotation. The Kenya team can guide you on the Kenya-side process before purchase.</p>
   </div>
 </section>
 
 
 <section class="mp-faq">
   <h2>Frequently Asked Questions. <em>BMW X5</em></h2>
-  <details class="faq-q"><summary>How much does a BMW X5 cost landed in Kenya?</summary>
-    <p>Send an inquiry below and our Kenya Sales Team will reply on WhatsApp.</p>
+  <details class="faq-q"><summary>Is this BMW X5 already in stock?</summary>
+    <p>The catalog shows models we can source from Japan. After you share your requirements through the inquiry form, we coordinate with our JUMVEA-verified Japanese exporting partner and send matching real vehicle options privately.</p>
   </details>
-  <details class="faq-q"><summary>What years of BMW X5 are available?</summary>
-    <p>We currently have model years from <strong>2019 – 2025</strong>. Stock at Japan auctions changes daily. If your preferred year isn't listed, mention it on the inquiry form and we'll source it specifically.</p>
+  <details class="faq-q"><summary>What years of BMW X5 can be sourced?</summary>
+    <p>Recent options include model years from <strong>2019 – 2025</strong>. Japanese auction inventory changes daily, so if your preferred year is not shown, mention it on the inquiry form and we will check for matching options specifically.</p>
   </details>
-  <details class="faq-q"><summary>Can I see real photos before paying any deposit?</summary>
-    <p>Yes. When you submit an inquiry, our Kenya team sends real photos of available units matching your criteria via WhatsApp, plus a walk-around video and the auction inspection sheet. <em>No deposit required to receive photos.</em></p>
+  <details class="faq-q"><summary>Where do I send payment?</summary>
+    <p>Payment is made only by international bank transfer to the official Japanese exporter bank account stated on the exporter-issued invoice or contract. Best Cars 254 does not ask customers to pay vehicle purchase funds to a personal account or mobile money number.</p>
   </details>
-  <details class="faq-q"><summary>How long does shipping from Japan to Mombasa take?</summary>
-    <p>RoRo shipping takes approximately 4–6 weeks from Japan to Mombasa Port. We handle the full process: Japanese export certificate, QISJ inspection, bill of lading, and clearance support at Mombasa.</p>
+  <details class="faq-q"><summary>Does the price include Kenya taxes and clearance?</summary>
+    <p>No. Quotations focus on CFR Mombasa unless stated otherwise in writing. Kenya import duty, VAT, IDF, customs clearance, registration and inland delivery are separate. The Kenya team can guide you on the Kenya-side process. See the <a href="../import-cost-disclaimer.html">Import Cost Disclaimer</a>.</p>
   </details>
-  <details class="faq-q"><summary>Do you accept M-Pesa for the deposit?</summary>
-    <p>Yes. The USD 2,000 deposit can be paid via M-Pesa (KES equivalent) or direct bank transfer. The remaining CIF balance is typically paid via bank transfer (Wise or SWIFT) for security and tax-record purposes.</p>
+  <details class="faq-q"><summary>When is the QISJ inspection done?</summary>
+    <p>QISJ inspection is arranged before shipment after the selected vehicle is purchased. The official inspection document is provided after the vehicle successfully passes inspection.</p>
   </details>
 </section>
 
@@ -869,7 +930,10 @@ body.has-sticky-bar{padding-bottom:80px}
           <img src="../images/bestcars254-logo.png" alt="Best Cars 254">
           <!-- <span class="site-logo-wordmark">BEST CARS 254</span> -->
         </a>
-        <p>Quality Japanese cars, delivered to Kenya by people you can call.</p>
+        <p>Kenya-based support for buyers importing quality used vehicles from Japan through a JUMVEA-verified exporting partner.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/bestcars254_imports/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        </div>
       </div>
 
       <div class="footer-col">
@@ -882,30 +946,37 @@ body.has-sticky-bar{padding-bottom:80px}
       </div>
 
       <div class="footer-col">
-        <span class="footer-col-hl">Services</span>
-        <div class="footer-col-line">Sourcing</div>
-        <div class="footer-col-line">QISJ Inspection</div>
-        <div class="footer-col-line">RoRo Shipping</div>
-        <div class="footer-col-line">Mombasa Clearing</div>
-        <div class="footer-col-line">Delivery anywhere in Kenya</div>
+        <span class="footer-col-hl">What we support</span>
+        <div class="footer-col-line">Vehicle sourcing coordination</div>
+        <div class="footer-col-line">JUMVEA-verified exporting partner</div>
+        <div class="footer-col-line">QISJ inspection coordination</div>
+        <div class="footer-col-line">CFR Mombasa quotations</div>
+        <div class="footer-col-line">Kenya-side guidance</div>
       </div>
 
       <div class="footer-col">
         <span class="footer-col-hl">Contact</span>
         <a href="https://wa.me/254735470450?text=Hi%20Best%20Cars%20254%20Sales%20Team" target="_blank" rel="noopener" class="footer-contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> +254 735 470450</a>
         <a href="https://wa.me/254734010654?text=Hi%20Best%20Cars%20254%20Sales%20Team" target="_blank" rel="noopener" class="footer-contact-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> +254 734 010654</a>
-        <div class="footer-col-line"><strong>Japan Headquarters</strong>〒145-0063 Tokyo, Ota-ku, Minami-senzoku 1-34-6, ARK21 Senzokuike RESERVE 2F &amp; 3F</div>
+        <div class="footer-col-line"><strong>Kenya Support</strong>Ngong Road, Nairobi, Kenya. By prior appointment only.</div>
         <div class="footer-map">
-          <iframe src="https://maps.google.com/maps?q=1-34-6%20Minami-senzoku%2C%20Ota%2C%20Tokyo%20145-0063%2C%20Japan&output=embed&z=16"
+          <iframe src="https://maps.google.com/maps?q=Ngong%20Road%2C%20Nairobi%2C%20Kenya&output=embed&z=14"
                   loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                  title="Best Cars 254. Tokyo office"></iframe>
+                  title="Best Cars 254 Kenya Support. Ngong Road, Nairobi."></iframe>
         </div>
       </div>
 
     </div>
+    <div class="footer-legal-row">
+      <a href="../privacy-policy.html">Privacy Policy</a>
+      <a href="../terms-of-service.html">Terms of Service</a>
+      <a href="../deposit-refund-policy.html">Deposit &amp; Refund Policy</a>
+      <a href="../import-cost-disclaimer.html">Import Cost Disclaimer</a>
+      <a href="../complaints-support-policy.html">Complaints &amp; Support</a>
+    </div>
     <div class="footer-bottom">
-      <div>&copy; 2026 Best Cars 254</div>
-      <div><a href="#">Privacy</a></div>
+      <div>&copy; 2026 Best Cars 254. Kenya representative for verified Japanese vehicle exports.</div>
+      <div>Prices stated as CFR Mombasa unless written otherwise.</div>
     </div>
   </div>
 </footer>

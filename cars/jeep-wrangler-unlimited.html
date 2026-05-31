@@ -858,7 +858,10 @@ body.has-sticky-bar{padding-bottom:80px}
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
       body:    params.toString()
     })
-      .then(function(r){ return r.json(); })
+      .then(function(r){
+        if (r.ok) return r.json().catch(function() { return { success: true }; });
+        return r.json().catch(function() { return { success: false, message: 'HTTP ' + r.status }; });
+      })
       .then(function(d){
         if (d.success) {
           form.style.display = 'none';

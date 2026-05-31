@@ -742,7 +742,7 @@ body.has-sticky-bar{padding-bottom:80px}
       <div class="cp-form-row-2">
         <div class="cp-form-row">
           <label for="mp-name">Full name</label>
-          <input type="text" name="full_name" id="mp-name" placeholder="Your full name" required>
+          <input type="text" name="name" id="mp-name" placeholder="Your full name" required>
         </div>
         <div class="cp-form-row">
           <label for="mp-city">City</label>
@@ -850,9 +850,6 @@ body.has-sticky-bar{padding-bottom:80px}
     btn.disabled = true;
     btn.textContent = 'Sending...';
     var data = new FormData(form);
-    // Set Reply-To so replying to the Web3Forms notification reaches the customer.
-    var emailVal = (document.getElementById('mp-email') || {}).value || '';
-    if (emailVal) data.set('replyto', emailVal);
     // Set Accept: application/json so Web3Forms returns JSON instead of HTML.
     fetch('https://api.web3forms.com/submit', {
       method:  'POST',

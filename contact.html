@@ -725,7 +725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cp-form-row-2">
           <div class="cp-form-row">
             <label for="cf-name">Full Name *</label>
-            <input type="text" name="full_name" id="cf-name" placeholder="Your full name" required>
+            <input type="text" name="name" id="cf-name" placeholder="Your full name" required>
           </div>
           <div class="cp-form-row">
             <label for="cf-city">City *</label>
@@ -785,12 +785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btn.disabled = true;
     btn.textContent = 'Sending...';
     var data = new FormData(form);
-    // Set Reply-To header so replying to the Web3Forms notification reaches the customer.
-    var emailVal = (document.getElementById('cf-email') || {}).value || '';
-    if (emailVal) data.set('replyto', emailVal);
     // Set Accept: application/json so Web3Forms returns JSON (not the HTML success page).
-    // Without this header, r.json() would throw SyntaxError and users saw "Network error"
-    // even on successful submissions.
     fetch('https://api.web3forms.com/submit', {
       method:  'POST',
       headers: { 'Accept': 'application/json' },

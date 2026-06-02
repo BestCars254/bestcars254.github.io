@@ -714,177 +714,25 @@ body.has-sticky-bar{padding-bottom:80px}
       </table>
       <div class="mp-price-line">Inquire for price</div>
       <div class="mp-cta-stack">
-        <a class="btn btn-primary" href="#inquire">Send an inquiry</a>
+        <a class="btn btn-primary" href="#inquire" data-inquiry data-model="Audi Q5">Send an inquiry</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Inquiry form (Web3Forms. Email never in HTML) -->
+<!-- Inquiry CTA (opens popup form) -->
 <section class="mp-inquire" id="inquire">
   <div class="mp-inquire-in">
     <div class="mp-inquire-head">
       <span class="eyebrow">Inquire about this car</span>
-      <h2>Tell us what you&rsquo;re looking for.</h2>
+      <h2>Request options for this Audi Q5.</h2>
       <p>Our Kenya team replies on WhatsApp with matching real vehicle options, photos and a CFR Mombasa quotation. Kenya import duty, taxes, clearance, registration and inland delivery are separate.</p>
-    </div>
-
-    <form id="mp-form" class="cp-form mp-form">
-      <input type="hidden" name="access_key" value="4848df2e-42c1-448a-afcf-14a50f017425">
-      <input type="hidden" name="subject" value="Inquiry: Audi Q5. Best Cars 254 website">
-      <input type="hidden" name="from_name" value="Best Cars 254 website">
-      <input type="hidden" name="action_needed" value="Engage on WhatsApp within 2 hours. Send 10+ real photos of available units matching customer criteria + personalized quote with total landed cost.">
-      <input type="hidden" name="lead_score" value="HIGH (model detail page form)">
-      <input type="hidden" name="model_of_interest" value="Audi Q5">
-      <input type="hidden" name="page_url" id="mp-page-url" value="">
-      <input type="hidden" name="submitted_at" id="mp-submitted-at" value="">
-
-      <div class="cp-form-row-2">
-        <div class="cp-form-row">
-          <label for="mp-name">Full name</label>
-          <input type="text" name="name" id="mp-name" placeholder="Your full name" required>
-        </div>
-        <div class="cp-form-row">
-          <label for="mp-city">City</label>
-          <input type="text" name="city" id="mp-city" placeholder="Nairobi, Mombasa, Kisumu" required>
-        </div>
+      <div class="mp-cta-stack" style="margin-top:26px">
+        <button type="button" class="btn btn-primary" data-inquiry data-model="Audi Q5">Send an inquiry</button>
       </div>
-      <div class="cp-form-row-2">
-        <div class="cp-form-row">
-          <label for="mp-phone">WhatsApp number</label>
-          <input type="tel" name="phone" id="mp-phone" value="+254 " placeholder="+254 7XX XXX XXX" required>
-        </div>
-        <div class="cp-form-row">
-          <label for="mp-email">Email address</label>
-          <input type="email" name="email" id="mp-email" placeholder="your@email.com" required>
-        </div>
-      </div>
-
-      <div class="cp-form-row">
-        <label>Year of manufacture <span class="cp-form-hint">pick one or more</span></label>
-        <div class="cp-check-grid" id="mp-year-group">
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2019"> 2019</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2020"> 2020</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2021"> 2021</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2022"> 2022</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2023"> 2023</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2024"> 2024</label>
-          <label class="cp-check-opt"><input type="checkbox" name="years" value="2025"> 2025</label>
-        </div>
-      </div>
-
-      <div class="cp-form-row">
-        <label for="mp-budget">Your budget in KSh <span class="cp-form-hint">indicative. CFR Mombasa scope.</span></label>
-        <input type="text" inputmode="numeric" name="budget_ksh" id="mp-budget" placeholder="e.g. 2,500,000" required>
-      </div>
-
-      <div class="cp-form-row">
-        <label>Maximum mileage</label>
-        <div class="cp-radio-group">
-          <label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 50,000 km"> Under 50,000 km</label>
-          <label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 100,000 km"> Under 100,000 km</label>
-          <label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 150,000 km"> Under 150,000 km</label>
-          <label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 200,000 km"> Under 200,000 km</label>
-          <label class="cp-radio-opt"><input type="radio" name="max_mileage" value="No limit"> No limit</label>
-        </div>
-      </div>
-
-      <div class="cp-form-row-2">
-        <div class="cp-form-row">
-          <label>Fuel preference <span class="cp-form-hint">optional</span></label>
-          <div class="cp-radio-group">
-            <label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Petrol"> Petrol</label>
-            <label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Diesel"> Diesel</label>
-            <label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Hybrid"> Hybrid</label>
-            <label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Any"> Any</label>
-          </div>
-        </div>
-        <div class="cp-form-row">
-          <label>Transmission <span class="cp-form-hint">optional</span></label>
-          <div class="cp-radio-group">
-            <label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Automatic"> Automatic</label>
-            <label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Manual"> Manual</label>
-            <label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Any"> Any</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="cp-form-row">
-        <label for="mp-message">Anything else? <span class="cp-form-hint">optional</span></label>
-        <textarea name="message" id="mp-message" placeholder="Color, delivery timeline, financing questions."></textarea>
-      </div>
-
-      <button type="submit" class="cp-form-submit" id="mp-submit">Send inquiry</button>
-      <p class="cp-form-error" id="mp-error">Something went wrong. Please try again.</p>
-      <p class="cp-form-privacy">Your information is private and never shared.</p>
-    </form>
-
-    <div class="cp-form-success" id="mp-success">
-      <div class="success-check">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E7D5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h3>Got it. We&rsquo;ll be in touch.</h3>
-      <p>Our Sales Team will message you on WhatsApp with available Audi Q5 units.</p>
     </div>
   </div>
 </section>
-
-<script>
-(function(){
-  var form = document.getElementById('mp-form');
-  if (!form) return;
-  var pageUrl = document.getElementById('mp-page-url');
-  var subAt   = document.getElementById('mp-submitted-at');
-  if (pageUrl) pageUrl.value = window.location.href;
-  if (subAt)   subAt.value   = new Date().toISOString();
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn = document.getElementById('mp-submit');
-    var err = document.getElementById('mp-error');
-    err.classList.remove('show');
-    if (form.querySelectorAll('input[name="years"]:checked').length === 0) {
-      err.textContent = 'Please pick at least one year of manufacture.';
-      err.classList.add('show');
-      return;
-    }
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    var fd = new FormData(form);
-    var params = new URLSearchParams();
-    fd.forEach(function(v, k){ params.append(k, v); });
-    // Send urlencoded (not multipart) — Web3Forms spam classifier flags multipart submissions.
-    fetch('https://api.web3forms.com/submit', {
-      method:  'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
-      body:    params.toString()
-    })
-      .then(function(r){
-        if (r.ok) return r.json().catch(function() { return { success: true }; });
-        return r.json().catch(function() { return { success: false, message: 'HTTP ' + r.status }; });
-      })
-      .then(function(d){
-        if (d.success) {
-          form.style.display = 'none';
-          document.getElementById('mp-success').classList.add('show');
-          if (typeof fbq === 'function') fbq('track', 'Lead', {content_name: 'Audi Q5'});
-        } else {
-          err.textContent = 'Something went wrong. ' + (d.message || 'Please try again.');
-          err.classList.add('show');
-          btn.disabled = false;
-          btn.textContent = 'Send inquiry';
-          if (typeof console !== 'undefined') console.warn('Web3Forms response:', d);
-        }
-      })
-      .catch(function(ex){
-        err.textContent = 'Network error. Please try again or message us on WhatsApp.';
-        err.classList.add('show');
-        btn.disabled = false;
-        if (typeof console !== 'undefined') console.error('Web3Forms submit failed:', ex);
-        btn.textContent = 'Send inquiry';
-      });
-  });
-})();
-</script>
 
 <section class="mp-timeline-section">
   <div class="mp-timeline-in">

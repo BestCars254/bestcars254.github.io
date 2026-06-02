@@ -1,0 +1,220 @@
+/* Best Cars 254 — site-wide inquiry modal.
+   Opens the full inquiry form as an overlay (no page navigation).
+   Triggered by: a.btn -> contact.html, model-card "Request Options" buttons,
+   and any element with [data-inquiry]. WhatsApp buttons are left untouched.
+   Form fields reuse the page's existing .cp-form* design-system CSS. */
+(function () {
+  if (window.__bcInquiryModal) return;
+  window.__bcInquiryModal = true;
+
+  /* ---- modal chrome styles (form fields styled by page CSS) ---- */
+  var css =
+    '.im-backdrop{position:fixed;inset:0;z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow-y:auto;background:rgba(20,18,16,.55);opacity:0;transition:opacity .25s ease}' +
+    '.im-backdrop.im-open{display:flex;opacity:1}' +
+    'body.im-lock{overflow:hidden}' +
+    '.im-dialog{position:relative;background:var(--bg-surface,#fff);width:100%;max-width:640px;margin:0 auto;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.4);transform:translateY(14px) scale(.985);transition:transform .25s ease}' +
+    '.im-backdrop.im-open .im-dialog{transform:none}' +
+    '.im-head{padding:32px 34px 4px}' +
+    '.im-head .im-eyebrow{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#b08d57);margin-bottom:10px}' +
+    '.im-head h2{font-family:var(--serif,Georgia,serif);font-size:26px;line-height:1.2;margin:0 0 6px;color:var(--text-primary,#1a1a1a)}' +
+    '.im-head p{font-family:var(--sans);font-size:14px;color:var(--text-muted,#666);margin:0;line-height:1.55}' +
+    '.im-model{display:none;margin:16px 34px 0;padding:11px 15px;border:1px solid var(--border-subtle,#e5e3dd);border-radius:10px;background:var(--bg-secondary,#f7f5f0);font-family:var(--sans);font-size:14px;color:var(--text-primary,#1a1a1a)}' +
+    '.im-model strong{color:var(--accent,#b08d57);font-weight:600}' +
+    '.im-body{padding:18px 34px 32px}' +
+    '.im-close{position:absolute;top:16px;right:16px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:none;background:rgba(0,0,0,.06);border-radius:50%;cursor:pointer;color:#333;transition:background .2s;z-index:2}' +
+    '.im-close:hover{background:rgba(0,0,0,.12)}' +
+    '@media(max-width:560px){.im-head{padding:26px 20px 2px}.im-head h2{font-size:22px}.im-body{padding:14px 20px 24px}.im-model{margin-left:20px;margin-right:20px}.im-dialog{border-radius:14px}}';
+  var st = document.createElement('style');
+  st.textContent = css;
+  document.head.appendChild(st);
+
+  /* ---- form markup (mirrors the detail-page inquiry form) ---- */
+  var formHTML =
+    '<form id="im-form" class="cp-form" novalidate>' +
+      '<input type="hidden" name="access_key" value="4848df2e-42c1-448a-afcf-14a50f017425">' +
+      '<input type="hidden" name="subject" id="im-subject" value="Inquiry: Best Cars 254 website">' +
+      '<input type="hidden" name="from_name" value="Best Cars 254 website">' +
+      '<input type="hidden" name="action_needed" value="Engage on WhatsApp within 2 hours. Send 10+ real photos of available units matching customer criteria + personalized quote with total landed cost.">' +
+      '<input type="hidden" name="lead_score" value="MEDIUM (site-wide inquiry modal)">' +
+      '<input type="hidden" name="model_of_interest" id="im-model-of-interest" value="">' +
+      '<input type="hidden" name="page_url" id="im-page-url" value="">' +
+      '<input type="hidden" name="submitted_at" id="im-submitted-at" value="">' +
+      '<div class="cp-form-row-2">' +
+        '<div class="cp-form-row"><label for="im-name">Full name</label><input type="text" name="name" id="im-name" placeholder="Your full name" required></div>' +
+        '<div class="cp-form-row"><label for="im-city">City</label><input type="text" name="city" id="im-city" placeholder="Nairobi, Mombasa, Kisumu" required></div>' +
+      '</div>' +
+      '<div class="cp-form-row-2">' +
+        '<div class="cp-form-row"><label for="im-phone">WhatsApp number</label><input type="tel" name="phone" id="im-phone" value="+254 " placeholder="+254 7XX XXX XXX" required></div>' +
+        '<div class="cp-form-row"><label for="im-email">Email address</label><input type="email" name="email" id="im-email" placeholder="your@email.com" required></div>' +
+      '</div>' +
+      '<div class="cp-form-row"><label>Year of manufacture <span class="cp-form-hint">pick one or more</span></label>' +
+        '<div class="cp-check-grid">' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2019"> 2019</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2020"> 2020</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2021"> 2021</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2022"> 2022</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2023"> 2023</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2024"> 2024</label>' +
+          '<label class="cp-check-opt"><input type="checkbox" name="years" value="2025"> 2025</label>' +
+        '</div></div>' +
+      '<div class="cp-form-row"><label for="im-budget">Your budget in KSh <span class="cp-form-hint">indicative. CFR Mombasa scope.</span></label><input type="text" inputmode="numeric" name="budget_ksh" id="im-budget" placeholder="e.g. 2,500,000" required></div>' +
+      '<div class="cp-form-row"><label>Maximum mileage</label>' +
+        '<div class="cp-radio-group">' +
+          '<label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 50,000 km"> Under 50,000 km</label>' +
+          '<label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 100,000 km"> Under 100,000 km</label>' +
+          '<label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 150,000 km"> Under 150,000 km</label>' +
+          '<label class="cp-radio-opt"><input type="radio" name="max_mileage" value="Under 200,000 km"> Under 200,000 km</label>' +
+          '<label class="cp-radio-opt"><input type="radio" name="max_mileage" value="No limit"> No limit</label>' +
+        '</div></div>' +
+      '<div class="cp-form-row-2">' +
+        '<div class="cp-form-row"><label>Fuel preference <span class="cp-form-hint">optional</span></label>' +
+          '<div class="cp-radio-group">' +
+            '<label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Petrol"> Petrol</label>' +
+            '<label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Diesel"> Diesel</label>' +
+            '<label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Hybrid"> Hybrid</label>' +
+            '<label class="cp-radio-opt"><input type="radio" name="fuel_preference" value="Any"> Any</label>' +
+          '</div></div>' +
+        '<div class="cp-form-row"><label>Transmission <span class="cp-form-hint">optional</span></label>' +
+          '<div class="cp-radio-group">' +
+            '<label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Automatic"> Automatic</label>' +
+            '<label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Manual"> Manual</label>' +
+            '<label class="cp-radio-opt"><input type="radio" name="transmission_pref" value="Any"> Any</label>' +
+          '</div></div>' +
+      '</div>' +
+      '<div class="cp-form-row"><label for="im-message">Anything else? <span class="cp-form-hint">optional</span></label><textarea name="message" id="im-message" placeholder="Color, delivery timeline, financing questions."></textarea></div>' +
+      '<button type="submit" class="cp-form-submit" id="im-submit">Send inquiry</button>' +
+      '<p class="cp-form-error" id="im-error">Something went wrong. Please try again.</p>' +
+      '<p class="cp-form-privacy">Your information is private and never shared.</p>' +
+    '</form>' +
+    '<div class="cp-form-success" id="im-success">' +
+      '<div class="success-check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E7D5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>' +
+      '<h3>Got it. We’ll be in touch.</h3>' +
+      '<p id="im-success-msg">Our Sales Team will message you on WhatsApp with available units.</p>' +
+    '</div>';
+
+  /* ---- build modal ---- */
+  var bd = document.createElement('div');
+  bd.className = 'im-backdrop';
+  bd.setAttribute('role', 'dialog');
+  bd.setAttribute('aria-modal', 'true');
+  bd.setAttribute('aria-label', 'Request vehicle options');
+  bd.innerHTML =
+    '<div class="im-dialog">' +
+      '<button class="im-close" type="button" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>' +
+      '<div class="im-head"><span class="im-eyebrow">Request private options</span><h2>Tell us what you’re looking for</h2><p>Share your requirements and our Kenya team sends matching real vehicle options with a CFR Mombasa quotation, privately.</p></div>' +
+      '<div class="im-model" id="im-model-line">Model of interest: <strong id="im-model-name"></strong></div>' +
+      '<div class="im-body">' + formHTML + '</div>' +
+    '</div>';
+  document.body.appendChild(bd);
+
+  var dialog   = bd.querySelector('.im-dialog');
+  var modelLine = bd.querySelector('#im-model-line');
+  var modelName = bd.querySelector('#im-model-name');
+  var form     = bd.querySelector('#im-form');
+  var success  = bd.querySelector('#im-success');
+  var lastFocus = null;
+
+  function openModal(model) {
+    /* reset to a fresh form each open */
+    form.style.display = '';
+    success.classList.remove('show');
+    var btn = bd.querySelector('#im-submit');
+    btn.disabled = false; btn.textContent = 'Send inquiry';
+    bd.querySelector('#im-error').classList.remove('show');
+
+    if (model) {
+      modelName.textContent = model;
+      modelLine.style.display = 'block';
+      bd.querySelector('#im-model-of-interest').value = model;
+      bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Best Cars 254 website';
+      bd.querySelector('#im-success-msg').textContent = 'Our Sales Team will message you on WhatsApp with available ' + model + ' units.';
+    } else {
+      modelLine.style.display = 'none';
+      bd.querySelector('#im-model-of-interest').value = 'General inquiry (no specific model)';
+      bd.querySelector('#im-subject').value = 'Inquiry: General. Best Cars 254 website';
+      bd.querySelector('#im-success-msg').textContent = 'Our Sales Team will message you on WhatsApp with matching available units.';
+    }
+    bd.querySelector('#im-page-url').value = window.location.href;
+    bd.querySelector('#im-submitted-at').value = new Date().toISOString();
+
+    lastFocus = document.activeElement;
+    bd.classList.add('im-open');
+    document.body.classList.add('im-lock');
+    var first = bd.querySelector('#im-name');
+    if (first) setTimeout(function () { first.focus(); }, 60);
+  }
+
+  function closeModal() {
+    bd.classList.remove('im-open');
+    document.body.classList.remove('im-lock');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* ---- close interactions ---- */
+  bd.querySelector('.im-close').addEventListener('click', closeModal);
+  bd.addEventListener('mousedown', function (e) { if (e.target === bd) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && bd.classList.contains('im-open')) closeModal();
+  });
+
+  /* ---- open triggers ---- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('a[class*="btn"][href$="contact.html"], a.mc-btn-details, [data-inquiry]');
+    if (!t || bd.contains(t)) return;
+    e.preventDefault();
+    var model = '';
+    var card = t.closest('.model-card');
+    if (t.hasAttribute('data-model')) {
+      model = t.getAttribute('data-model');
+    } else if (card) {
+      var ti = card.querySelector('.mc-title');
+      if (ti) model = ti.textContent.trim();
+    } else {
+      var mo = document.querySelector('input[name="model_of_interest"]');
+      if (mo && mo.value) model = mo.value;
+    }
+    openModal(model);
+  });
+
+  /* ---- submit (Web3Forms, urlencoded) ---- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = bd.querySelector('#im-submit');
+    var err = bd.querySelector('#im-error');
+    err.classList.remove('show');
+    if (form.querySelectorAll('input[name="years"]:checked').length === 0) {
+      err.textContent = 'Please pick at least one year of manufacture.';
+      err.classList.add('show');
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var fd = new FormData(form);
+    var params = new URLSearchParams();
+    fd.forEach(function (v, k) { params.append(k, v); });
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+      .then(function (r) {
+        if (r.ok) return r.json().catch(function () { return { success: true }; });
+        return r.json().catch(function () { return { success: false, message: 'HTTP ' + r.status }; });
+      })
+      .then(function (d) {
+        if (d.success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+          if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: bd.querySelector('#im-model-of-interest').value });
+        } else {
+          err.textContent = 'Something went wrong. ' + (d.message || 'Please try again.');
+          err.classList.add('show');
+          btn.disabled = false; btn.textContent = 'Send inquiry';
+        }
+      })
+      .catch(function () {
+        err.textContent = 'Network error. Please try again or message us on WhatsApp.';
+        err.classList.add('show');
+        btn.disabled = false; btn.textContent = 'Send inquiry';
+      });
+  });
+})();

@@ -241,8 +241,8 @@ body.menu-open{overflow:hidden}
 .model-card{display:flex;flex-direction:column;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-card);overflow:hidden;transition:box-shadow var(--transition)}
 .model-card:hover{box-shadow:0 12px 32px rgba(0,0,0,.08)}
 .model-card.is-soon{opacity:.7}
-.mc-photo-wrap{position:relative;display:block;background:var(--bg-secondary);aspect-ratio:4/3;overflow:hidden}
-.mc-photo{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--transition-img)}
+.mc-photo-wrap{position:relative;display:block;background:#fff;aspect-ratio:4/3;overflow:hidden}
+.mc-photo{width:100%;height:100%;object-fit:contain;display:block;transition:transform var(--transition-img)}
 .model-card:hover .mc-photo{transform:scale(1.03)}
 .mc-status-pill{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;background:var(--bg-surface);color:var(--text-primary);border-radius:var(--radius-pill);font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1}
 .mc-status-dot{width:8px;height:8px;border-radius:50%;background:var(--status-available);display:inline-block}
@@ -478,8 +478,8 @@ footer.site-footer{background:var(--bg-primary);color:rgba(250,250,250,.78);padd
 @media(min-width:900px){.mp-detail-grid{grid-template-columns:1.1fr 1fr;gap:64px;padding:72px var(--gutter) 128px}}
 .mp-gallery{position:relative}
 @media(min-width:900px){.mp-gallery{position:sticky;top:96px}}
-.mp-gallery-photo{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-card);background:#EFEDE6;border:1px solid var(--border-subtle)}
-.mp-gallery-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.mp-gallery-photo{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-card);background:#fff;border:1px solid var(--border-subtle)}
+.mp-gallery-photo img{width:100%;height:100%;object-fit:contain;display:block}
 .mp-gallery-tag{position:absolute;bottom:14px;right:14px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-inverse);background:rgba(0,0,0,.55);padding:7px 13px;border-radius:var(--radius-pill);backdrop-filter:blur(4px)}
 .mp-specs{display:flex;flex-direction:column;gap:24px}
 .mp-specs-eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}

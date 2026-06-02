@@ -379,10 +379,11 @@ footer.site-footer{background:var(--bg-primary);color:rgba(250,250,250,.78);padd
 @media(min-width:560px){.cp-form-row-2{grid-template-columns:1fr 1fr}}
 .cp-form-row-2 .cp-form-row{margin-bottom:0}
 .cp-form label{display:block;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
-.cp-form input,.cp-form textarea{width:100%;background:var(--bg-surface);border:1px solid var(--border-subtle);color:var(--text-primary);padding:14px 16px;border-radius:var(--radius-btn);font-family:var(--sans);font-size:16px;outline:none;transition:border-color var(--transition);box-sizing:border-box;min-height:52px}
-.cp-form input:focus,.cp-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-15)}
+.cp-form input,.cp-form textarea,.cp-form select{width:100%;background:var(--bg-surface);border:1px solid var(--border-subtle);color:var(--text-primary);padding:14px 16px;border-radius:var(--radius-btn);font-family:var(--sans);font-size:16px;outline:none;transition:border-color var(--transition);box-sizing:border-box;min-height:52px}
+.cp-form input:focus,.cp-form textarea:focus,.cp-form select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-15)}
 .cp-form input::placeholder,.cp-form textarea::placeholder{color:var(--text-muted)}
 .cp-form textarea{resize:vertical;min-height:120px}
+.cp-form select{-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .cp-form-submit{width:100%;padding:16px;background:var(--accent);color:var(--text-primary);border:none;border-radius:var(--radius-btn);font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background var(--transition);margin-top:10px;min-height:56px}
 .cp-form-submit:hover:not(:disabled){background:var(--accent-h)}
 .cp-form-submit:disabled{opacity:.6;cursor:not-allowed}
@@ -742,9 +743,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="email" name="email" id="cf-email" placeholder="your@email.com" required>
           </div>
         </div>
-        <div class="cp-form-row">
-          <label for="cf-model">Model of Interest (optional)</label>
-          <input type="text" name="model_of_interest" id="cf-model" placeholder="e.g. Toyota Harrier, Land Cruiser Prado, Mazda CX-5">
+        <div class="cp-form-row-2">
+          <div class="cp-form-row">
+            <label for="cf-vehicle-type">Vehicle Type (optional)</label>
+            <select name="vehicle_type" id="cf-vehicle-type">
+              <option value="">Select a type</option>
+              <option value="SUV / 4x4">SUV / 4x4</option>
+              <option value="Compact / Hatchback">Compact / Hatchback</option>
+              <option value="Sedan">Sedan</option>
+              <option value="Station Wagon">Station Wagon</option>
+              <option value="Minivan / 7–8 seater">Minivan / 7–8 seater</option>
+              <option value="Pickup / Double cab">Pickup / Double cab</option>
+              <option value="Kei car (small &amp; economical)">Kei car (small &amp; economical)</option>
+              <option value="Luxury / Premium">Luxury / Premium</option>
+              <option value="Sports / Coupe">Sports / Coupe</option>
+              <option value="Bus / Lorry (commercial)">Bus / Lorry (commercial)</option>
+              <option value="Not sure / Other">Not sure / Other</option>
+            </select>
+          </div>
+          <div class="cp-form-row">
+            <label for="cf-model">Model of Interest (optional)</label>
+            <input type="text" name="model_of_interest" id="cf-model" placeholder="e.g. Harrier, Prado, CX-5">
+          </div>
         </div>
         <div class="cp-form-row">
           <label for="cf-message">Your Message *</label>

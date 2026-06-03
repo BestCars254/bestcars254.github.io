@@ -763,8 +763,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="cp-form-row">
             <label for="cf-model">Model of Interest (optional)</label>
-            <input type="text" name="model_of_interest" id="cf-model" placeholder="e.g. Harrier, Prado, CX-5">
+            <select name="model_of_interest" id="cf-model">
+              <option value="">Select a model</option>
+              <optgroup label="Audi">
+                <option value="Audi Q3">Audi Q3</option>
+                <option value="Audi Q5">Audi Q5</option>
+              </optgroup>
+              <optgroup label="BMW">
+                <option value="BMW X3">BMW X3</option>
+                <option value="BMW X5">BMW X5</option>
+              </optgroup>
+              <optgroup label="Bentley">
+                <option value="Bentley Bentayga">Bentley Bentayga</option>
+              </optgroup>
+              <optgroup label="Honda">
+                <option value="Honda Vezel">Honda Vezel</option>
+              </optgroup>
+              <optgroup label="Jeep">
+                <option value="Jeep Wrangler">Jeep Wrangler</option>
+              </optgroup>
+              <optgroup label="Land Rover">
+                <option value="Land Rover Defender">Land Rover Defender</option>
+                <option value="Land Rover Discovery">Land Rover Discovery</option>
+                <option value="Land Rover Range Rover">Land Rover Range Rover</option>
+              </optgroup>
+              <optgroup label="Lexus">
+                <option value="Lexus LX 600">Lexus LX 600</option>
+                <option value="Lexus NX">Lexus NX</option>
+              </optgroup>
+              <optgroup label="Mazda">
+                <option value="Mazda CX-3">Mazda CX-3</option>
+                <option value="Mazda CX-5">Mazda CX-5</option>
+                <option value="Mazda CX-8">Mazda CX-8</option>
+              </optgroup>
+              <optgroup label="Mercedes-Benz">
+                <option value="Mercedes-Benz C200">Mercedes-Benz C200</option>
+                <option value="Mercedes-Benz E250 Coupe">Mercedes-Benz E250 Coupe</option>
+                <option value="Mercedes-Benz E350">Mercedes-Benz E350</option>
+                <option value="Mercedes-Benz G-Class">Mercedes-Benz G-Class</option>
+                <option value="Mercedes-Benz GLC">Mercedes-Benz GLC</option>
+                <option value="Mercedes-Benz GLC Coupe">Mercedes-Benz GLC Coupe</option>
+                <option value="Mercedes-Benz GLE">Mercedes-Benz GLE</option>
+                <option value="Mercedes-Benz GLS">Mercedes-Benz GLS</option>
+                <option value="Mercedes-Benz V220">Mercedes-Benz V220</option>
+              </optgroup>
+              <optgroup label="Nissan">
+                <option value="Nissan X-Trail">Nissan X-Trail</option>
+              </optgroup>
+              <optgroup label="Peugeot">
+                <option value="Peugeot 3008">Peugeot 3008</option>
+              </optgroup>
+              <optgroup label="Porsche">
+                <option value="Porsche Cayenne">Porsche Cayenne</option>
+                <option value="Porsche Macan">Porsche Macan</option>
+              </optgroup>
+              <optgroup label="Range Rover">
+                <option value="Range Rover Evoque">Range Rover Evoque</option>
+                <option value="Range Rover Sport">Range Rover Sport</option>
+                <option value="Range Rover Velar">Range Rover Velar</option>
+              </optgroup>
+              <optgroup label="Subaru">
+                <option value="Subaru Forester">Subaru Forester</option>
+              </optgroup>
+              <optgroup label="Toyota">
+                <option value="Toyota Harrier">Toyota Harrier</option>
+                <option value="Toyota Hilux GR Sport">Toyota Hilux GR Sport</option>
+                <option value="Toyota Land Cruiser 250">Toyota Land Cruiser 250</option>
+                <option value="Toyota Land Cruiser 300">Toyota Land Cruiser 300</option>
+                <option value="Toyota Land Cruiser 70">Toyota Land Cruiser 70</option>
+                <option value="Toyota Land Cruiser Prado">Toyota Land Cruiser Prado</option>
+                <option value="Toyota RAV4">Toyota RAV4</option>
+              </optgroup>
+              <optgroup label="Volkswagen">
+                <option value="Volkswagen Golf GTI">Volkswagen Golf GTI</option>
+                <option value="Volkswagen Tiguan">Volkswagen Tiguan</option>
+              </optgroup>
+              <optgroup label="Volvo">
+                <option value="Volvo XC40">Volvo XC40</option>
+                <option value="Volvo XC60">Volvo XC60</option>
+                <option value="Volvo XC90">Volvo XC90</option>
+              </optgroup>
+            </select>
           </div>
+        </div>
+        <div class="cp-form-row">
+          <label for="cf-budget">Budget in KSh (optional)</label>
+          <select name="budget_ksh" id="cf-budget">
+            <option value="">Select a budget</option>
+            <option value="Up to KSh 3M">Up to KSh 3M</option>
+            <option value="Up to KSh 5M">Up to KSh 5M</option>
+            <option value="Up to KSh 7M">Up to KSh 7M</option>
+            <option value="Up to KSh 10M">Up to KSh 10M</option>
+            <option value="Up to KSh 20M">Up to KSh 20M</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div class="cp-form-row">
           <label for="cf-message">Your Message *</label>

@@ -1,7 +1,9 @@
 /* Best Cars 254 — site-wide inquiry modal.
    Opens the full inquiry form as an overlay (no page navigation).
-   Triggered by: a.btn -> contact.html, model-card "Request Options" buttons,
-   and any element with [data-inquiry]. WhatsApp buttons are left untouched.
+   Triggered ONLY for model-specific inquiries: model-card "Request Options"
+   buttons and any element with [data-inquiry] (which carry a vehicle model).
+   General "contact.html" buttons navigate to the contact page (form) instead.
+   WhatsApp buttons are left untouched.
    Form fields reuse the page's existing .cp-form* design-system CSS. */
 (function () {
   if (window.__bcInquiryModal) return;
@@ -168,7 +170,7 @@
 
   /* ---- open triggers ---- */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('a[class*="btn"][href$="contact.html"], a.mc-btn-details, [data-inquiry]');
+    var t = e.target.closest('a.mc-btn-details, [data-inquiry]');
     if (!t || bd.contains(t)) return;
     e.preventDefault();
     var model = '';

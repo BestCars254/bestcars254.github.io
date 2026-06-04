@@ -250,6 +250,23 @@ body.menu-open{overflow:hidden}
 .mc-btn-wa{flex:0 0 46px;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;background:var(--accent);color:var(--text-primary);border-radius:var(--radius-btn);transition:background var(--transition)}
 .mc-btn-wa:hover{background:var(--accent-h)}
 .mc-btn-wa svg{width:18px;height:18px}
+/* ── Compact horizontal card on phones: ~3 visible at once ── */
+@media(max-width:599px){
+  .stock-grid,.model-grid{gap:14px}
+  .stock-grid{padding-top:28px;padding-bottom:60px}
+  .model-card{flex-direction:row}
+  .mc-photo-wrap{flex:0 0 40%;max-width:40%;aspect-ratio:auto}
+  .mc-body{padding:12px 14px;gap:3px;justify-content:center}
+  .mc-eyebrow{font-size:10px;letter-spacing:.14em}
+  .mc-title{font-size:16px;line-height:1.2}
+  .mc-meta{font-size:12px;margin-top:2px}
+  .mc-price-text{font-size:11px;margin-top:4px}
+  .mc-actions{margin-top:10px;gap:6px}
+  .mc-btn-details{min-height:40px;padding:9px 8px;font-size:11px;letter-spacing:.03em}
+  .mc-btn-wa{flex:0 0 40px;width:40px;height:40px}
+  .mc-btn-wa svg{width:16px;height:16px}
+  .mc-status-pill{top:8px;left:8px;padding:4px 7px;font-size:9px;letter-spacing:.06em}
+}
 
 /* ── Process strip (homepage 6 numbered steps) ── */
 .process-strip{display:flex;gap:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory;padding-bottom:8px;margin:0 calc(var(--gutter) * -1);padding-left:var(--gutter);padding-right:var(--gutter)}

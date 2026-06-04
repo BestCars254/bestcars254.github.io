@@ -48,7 +48,7 @@
       '</div>' +
       '<div class="cp-form-row-2">' +
         '<div class="cp-form-row"><label for="im-phone">WhatsApp number</label><input type="tel" name="phone" id="im-phone" value="+254 " placeholder="+254 7XX XXX XXX" required></div>' +
-        '<div class="cp-form-row"><label for="im-email">Email address</label><input type="email" name="email" id="im-email" placeholder="your@email.com" required></div>' +
+        '<div class="cp-form-row"><label for="im-email">Email address <span class=\'cp-form-hint\'>optional</span></label><input type="email" name="email" id="im-email" placeholder="your@email.com"></div>' +
       '</div>' +
       '<div class="cp-form-row-2">' +
         '<div class="cp-form-row"><label for="im-vehicle-type">Vehicle type <span class=\'cp-form-hint\'>optional</span></label><select name="vehicle_type" id="im-vehicle-type"><option value="">Select a type</option><option value="SUV / 4x4">SUV / 4x4</option><option value="Compact / Hatchback">Compact / Hatchback</option><option value="Sedan">Sedan</option><option value="Station Wagon">Station Wagon</option><option value="Minivan / 7–8 seater">Minivan / 7–8 seater</option><option value="Pickup / Double cab">Pickup / Double cab</option><option value="Kei car (small &amp; economical)">Kei car (small &amp; economical)</option><option value="Luxury / Premium">Luxury / Premium</option><option value="Sports / Coupe">Sports / Coupe</option><option value="Bus / Lorry (commercial)">Bus / Lorry (commercial)</option><option value="Not sure / Other">Not sure / Other</option></select></div>' +
@@ -193,13 +193,15 @@
     var btn = bd.querySelector('#im-submit');
     var err = bd.querySelector('#im-error');
     err.classList.remove('show');
-    var reqs = [['im-name', 'your full name'], ['im-city', 'your city'], ['im-phone', 'your WhatsApp number'], ['im-email', 'your email address']];
+    var reqs = [['im-name', 'your full name'], ['im-city', 'your city']];
     for (var ri = 0; ri < reqs.length; ri++) {
       var rel = bd.querySelector('#' + reqs[ri][0]);
       if (!rel.value.trim()) { err.textContent = 'Please enter ' + reqs[ri][1] + '.'; err.classList.add('show'); rel.focus(); return; }
     }
+    var phEl = bd.querySelector('#im-phone');
+    if (phEl.value.replace(/\D/g, '').length < 9) { err.textContent = 'Please enter a valid phone number.'; err.classList.add('show'); phEl.focus(); return; }
     var emv = bd.querySelector('#im-email').value.trim();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emv)) { err.textContent = 'Please enter a valid email address.'; err.classList.add('show'); bd.querySelector('#im-email').focus(); return; }
+    if (emv && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emv)) { err.textContent = 'Please enter a valid email address (or leave it blank).'; err.classList.add('show'); bd.querySelector('#im-email').focus(); return; }
     if (form.querySelectorAll('input[name="years"]:checked').length === 0) {
       err.textContent = 'Please pick at least one year of manufacture.';
       err.classList.add('show');

@@ -739,8 +739,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="tel" name="phone" id="cf-phone" value="+254 " placeholder="+254 7XX XXX XXX" required>
           </div>
           <div class="cp-form-row">
-            <label for="cf-email">Email Address *</label>
-            <input type="email" name="email" id="cf-email" placeholder="your@email.com" required>
+            <label for="cf-email">Email Address (optional)</label>
+            <input type="email" name="email" id="cf-email" placeholder="your@email.com">
           </div>
         </div>
         <div class="cp-form-row-2">
@@ -908,6 +908,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var btn = document.getElementById('cf-submit');
     var err = document.getElementById('cf-error');
     err.classList.remove('show');
+    var phEl = document.getElementById('cf-phone');
+    if (phEl.value.replace(/\D/g, '').length < 9) {
+      err.textContent = 'Please enter a valid WhatsApp phone number.';
+      err.classList.add('show');
+      phEl.focus();
+      return;
+    }
     btn.disabled = true;
     btn.textContent = 'Sending...';
     var fd = new FormData(form);

@@ -755,23 +755,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <option value="">All brands</option>
       <option value="Audi">Audi</option><option value="Bentley">Bentley</option><option value="BMW">BMW</option><option value="Honda">Honda</option><option value="Jeep">Jeep</option><option value="Land Rover">Land Rover</option><option value="Lexus">Lexus</option><option value="Mazda">Mazda</option><option value="Mercedes">Mercedes</option><option value="Nissan">Nissan</option><option value="Peugeot">Peugeot</option><option value="Porsche">Porsche</option><option value="Subaru">Subaru</option><option value="Suzuki">Suzuki</option><option value="Toyota">Toyota</option><option value="Volkswagen">Volkswagen</option><option value="Volvo">Volvo</option>
     </select>
-    <select class="stock-filter-sel" id="sel-year" onchange="runStockFilters(true)" aria-label="Year range">
-      <option value="">Any year</option>
-      <option value="2023">2023 or newer</option>
-      <option value="2020">2020 or newer</option>
-      <option value="2018">2018 or newer</option>
-    </select>
-    <select class="stock-filter-sel" id="sel-feat" onchange="runStockFilters(true)" aria-label="Feature">
-      <option value="">Any feature</option>
-      <option value="4wd">4WD / AWD</option>
-      <option value="sunroof">Sunroof</option>
-      <option value="leather">Leather</option>
-      <option value="navigation">Navigation</option>
-    </select>
-    <select class="stock-filter-sel" id="sel-sort" onchange="runStockFilters(false)" aria-label="Sort by">
-      <option value="default">Sort. Featured</option>
-      <option value="newest">Newest first</option>
-    </select>
     <div class="stock-results-count"><span id="stock-count">28</span> models</div>
     <button type="button" class="stock-filter-reset" id="stock-reset" onclick="resetStockFilters()" aria-label="Clear all filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Reset</button>
   </div>
@@ -1638,27 +1621,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 function runStockFilters(scroll){
   var brand = document.getElementById('sel-brand').value;
-  var minY  = parseInt(document.getElementById('sel-year').value) || 0;
-  var feat  = document.getElementById('sel-feat').value;
-  var sort  = document.getElementById('sel-sort').value;
   var cards = Array.from(document.querySelectorAll('.stock-grid .model-card'));
   var n = 0;
   cards.forEach(function(c){
-    var ok = true;
-    if (brand && c.dataset.brand !== brand) ok = false;
-    if (minY && parseInt(c.dataset.maxy || 0) < minY) ok = false;
-    if (feat && (c.dataset.feats || '').split(' ').indexOf(feat) < 0) ok = false;
+    var ok = !brand || c.dataset.brand === brand;
     c.style.display = ok ? '' : 'none';
     if (ok) n++;
   });
   document.getElementById('stock-count').textContent = n;
   document.getElementById('no-results').style.display = n === 0 ? 'block' : 'none';
   var resetBtn = document.getElementById('stock-reset');
-  if (resetBtn) resetBtn.classList.toggle('is-visible', !!(brand || minY || feat || sort !== 'default'));
-  var visible = cards.filter(function(c){return c.style.display !== 'none';});
-  if (sort === 'newest') visible.sort(function(a,b){return (parseInt(b.dataset.maxy)||0) - (parseInt(a.dataset.maxy)||0);});
-  var grid = document.getElementById('stock-grid');
-  visible.forEach(function(c){ grid.appendChild(c); });
+  if (resetBtn) resetBtn.classList.toggle('is-visible', !!brand);
   if (scroll){
     var el = document.getElementById('stock-grid');
     var off = el.getBoundingClientRect().top + window.scrollY - 130;
@@ -1667,9 +1640,6 @@ function runStockFilters(scroll){
 }
 function resetStockFilters(){
   document.getElementById('sel-brand').value = '';
-  document.getElementById('sel-year').value = '';
-  document.getElementById('sel-feat').value = '';
-  document.getElementById('sel-sort').value = 'default';
   runStockFilters(true);
 }
 </script>

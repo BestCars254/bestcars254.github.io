@@ -47,7 +47,7 @@
         '<div class="cp-form-row"><label for="im-city">City</label><input type="text" name="city" id="im-city" placeholder="Nairobi, Mombasa, Kisumu" required></div>' +
       '</div>' +
       '<div class="cp-form-row-2">' +
-        '<div class="cp-form-row"><label for="im-phone">WhatsApp number</label><input type="tel" name="phone" id="im-phone" value="+254 " placeholder="+254 7XX XXX XXX" required></div>' +
+        '<div class="cp-form-row"><label for="im-phone">WhatsApp number</label><input type="tel" name="phone" id="im-phone" placeholder="+254 000 000000" required></div>' +
         '<div class="cp-form-row"><label for="im-email">Email address <span class=\'cp-form-hint\'>optional</span></label><input type="email" name="email" id="im-email" placeholder="your@email.com"></div>' +
       '</div>' +
       '<div class="cp-form-row-2">' +
@@ -199,7 +199,8 @@
       if (!rel.value.trim()) { err.textContent = 'Please enter ' + reqs[ri][1] + '.'; err.classList.add('show'); rel.focus(); return; }
     }
     var phEl = bd.querySelector('#im-phone');
-    if (phEl.value.replace(/\D/g, '').length < 9) { err.textContent = 'Please enter a valid phone number.'; err.classList.add('show'); phEl.focus(); return; }
+    var phLocal = phEl.value.replace(/\D/g, '').replace(/^254/, '');
+    if (phLocal.length < 9 || !/[1-9]/.test(phLocal)) { err.textContent = 'Please enter a valid phone number (e.g. +254 712 345678).'; err.classList.add('show'); phEl.focus(); return; }
     var emv = bd.querySelector('#im-email').value.trim();
     if (emv && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emv)) { err.textContent = 'Please enter a valid email address (or leave it blank).'; err.classList.add('show'); bd.querySelector('#im-email').focus(); return; }
     if (form.querySelectorAll('input[name="years"]:checked').length === 0) {

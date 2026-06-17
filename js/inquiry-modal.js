@@ -27,6 +27,9 @@
     '.im-close:hover{background:rgba(0,0,0,.12)}' +
     '.im-body .cp-form select{width:100%;background:var(--bg-surface,#fff);border:1px solid var(--border-subtle,#e5e3dd);color:var(--text-primary,#1a1a1a);padding:14px 44px 14px 16px;border-radius:var(--radius-btn,10px);font-family:var(--sans);font-size:16px;outline:none;box-sizing:border-box;min-height:52px;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23999%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}' +
     '.im-body .cp-form select:focus{border-color:var(--accent,#b08d57);box-shadow:0 0 0 3px var(--accent-15,rgba(176,141,87,.15))}' +
+    '.im-body .im-wa{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:14px 22px;background:#25D366;color:#fff;border-radius:10px;font-family:var(--sans);font-weight:600;font-size:15px;text-decoration:none}' +
+    '.im-body .im-wa svg{width:18px;height:18px}' +
+    '.im-body .im-wa:hover{background:#1ebe5d}' +
     '@media(max-width:560px){.im-head{padding:26px 20px 2px}.im-head h2{font-size:22px}.im-body{padding:14px 20px 24px}.im-model{margin-left:20px;margin-right:20px}.im-dialog{border-radius:14px}}';
   var st = document.createElement('style');
   st.textContent = css;
@@ -97,6 +100,7 @@
       '<div class="success-check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2E7D5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>' +
       '<h3>Got it. We’ll be in touch.</h3>' +
       '<p id="im-success-msg">Our Sales Team will message you on WhatsApp with available units.</p>' +
+      '<a class="im-wa" href="https://wa.me/254735470450?text=Hi%2C%20I%20just%20submitted%20an%20inquiry%20on%20Best%20Cars%20254.%20Please%20send%20availability%20and%20specs." target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Continue on WhatsApp</a>' +
     '</div>';
 
   /* ---- build modal ---- */
@@ -139,11 +143,11 @@
       }
       mSel.value = model;
       bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Best Cars 254 website';
-      bd.querySelector('#im-success-msg').textContent = 'Our Sales Team will message you on WhatsApp with available ' + model + ' units.';
+      bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     } else {
       mSel.selectedIndex = 0;
       bd.querySelector('#im-subject').value = 'Inquiry: General. Best Cars 254 website';
-      bd.querySelector('#im-success-msg').textContent = 'Our Sales Team will message you on WhatsApp with matching available units.';
+      bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     }
     bd.querySelector('#im-page-url').value = window.location.href;
     bd.querySelector('#im-submitted-at').value = new Date().toISOString();

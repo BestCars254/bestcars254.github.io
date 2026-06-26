@@ -1,4 +1,4 @@
-/* Best Cars 254 — site-wide inquiry modal.
+/* Markato Autos Japan — site-wide inquiry modal.
    Opens the full inquiry form as an overlay (no page navigation).
    Triggered ONLY for model-specific inquiries: model-card "Request Options"
    buttons and any element with [data-inquiry] (which carry a vehicle model).
@@ -39,8 +39,8 @@
   var formHTML =
     '<form id="im-form" class="cp-form" novalidate>' +
       '<input type="hidden" name="access_key" value="4848df2e-42c1-448a-afcf-14a50f017425">' +
-      '<input type="hidden" name="subject" id="im-subject" value="Inquiry: Best Cars 254 website">' +
-      '<input type="hidden" name="from_name" value="Best Cars 254 website">' +
+      '<input type="hidden" name="subject" id="im-subject" value="Inquiry: Markato Autos Japan website">' +
+      '<input type="hidden" name="from_name" value="Markato Autos Japan website">' +
       '<input type="hidden" name="action_needed" value="Engage on WhatsApp within 2 hours. Send 10+ real photos of available units matching customer criteria + personalized quote with total landed cost.">' +
       '<input type="hidden" name="lead_score" value="MEDIUM (site-wide inquiry modal)">' +
       '<input type="hidden" name="page_url" id="im-page-url" value="">' +
@@ -142,11 +142,11 @@
         mSel.insertBefore(o, mSel.options[1] || null);
       }
       mSel.value = model;
-      bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Best Cars 254 website';
+      bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Markato Autos Japan website';
       bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     } else {
       mSel.selectedIndex = 0;
-      bd.querySelector('#im-subject').value = 'Inquiry: General. Best Cars 254 website';
+      bd.querySelector('#im-subject').value = 'Inquiry: General. Markato Autos Japan website';
       bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     }
     bd.querySelector('#im-page-url').value = window.location.href;

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" role="img" aria-label="Markato Autos Japan" fill="none">
+  <defs>
+    <linearGradient id="majGold" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#FBE7A6"/>
+      <stop offset="0.42" stop-color="#D9B24A"/>
+      <stop offset="0.58" stop-color="#C79A2E"/>
+      <stop offset="1" stop-color="#9C7A20"/>
+    </linearGradient>
+  </defs>
+  <!-- M monogram -->
+  <path d="M18 126 L46 30 L72 80 L98 30 L126 126" stroke="url(#majGold)" stroke-width="16" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/>
+  <!-- MARKATO wordmark -->
+  <text x="170" y="86" textLength="400" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" fill="url(#majGold)">MARKATO</text>
+  <!-- subtitle row -->
+  <line x1="170" y1="112" x2="206" y2="112" stroke="url(#majGold)" stroke-width="2.5"/>
+  <text x="216" y="120" textLength="308" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600" fill="#FAFAFA">AUTOS JAPAN</text>
+  <line x1="534" y1="112" x2="570" y2="112" stroke="url(#majGold)" stroke-width="2.5"/>
+</svg>

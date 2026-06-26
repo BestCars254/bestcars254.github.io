@@ -243,3 +243,47 @@
       });
   });
 })();
+
+/* ---- Site-wide rebrand notice bar (BestCars254 -> Markato Autos Japan) ---- */
+(function () {
+  if (window.__majRebrandBar) return;
+  window.__majRebrandBar = true;
+  try { if (localStorage.getItem('maj_rebrand_dismissed') === '1') return; } catch (e) {}
+
+  var css =
+    '.maj-rebrand-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#0E0E0E,#1c1813);color:#FAFAFA;border-bottom:1px solid #B8975A;display:flex;align-items:center;justify-content:center;gap:14px;padding:9px 42px 9px 16px;font-family:Inter,system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.45;text-align:center}' +
+    '.maj-rebrand-bar strong{color:#D9B24A;font-weight:600}' +
+    '.maj-rebrand-bar a{color:#D9B24A;text-decoration:underline;white-space:nowrap;font-weight:600}' +
+    '.maj-rebrand-bar .maj-x{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:#FAFAFA;font-size:22px;line-height:1;cursor:pointer;padding:2px 8px;opacity:.75}' +
+    '.maj-rebrand-bar .maj-x:hover{opacity:1}' +
+    '@media(max-width:560px){.maj-rebrand-bar{font-size:12px;padding:8px 36px 8px 12px}}';
+  var st = document.createElement('style');
+  st.textContent = css;
+  document.head.appendChild(st);
+
+  var inCars = location.pathname.indexOf('/cars/') > -1;
+  var home = (inCars ? '../index.html' : 'index.html') + '#rebrand';
+
+  var bar = document.createElement('div');
+  bar.className = 'maj-rebrand-bar';
+  bar.setAttribute('role', 'note');
+  bar.innerHTML =
+    '<span><strong>BestCars254 is now Markato Autos Japan.</strong> Same trusted team in Japan &amp; Kenya &mdash; a stronger name. <a href="' + home + '">Learn more</a></span>' +
+    '<button class="maj-x" type="button" aria-label="Dismiss">&times;</button>';
+
+  function place() {
+    if (!document.body) return;
+    document.body.insertBefore(bar, document.body.firstChild);
+    var hdr = document.querySelector('.site-header');
+    function offset() { if (hdr) hdr.style.top = bar.offsetHeight + 'px'; }
+    offset();
+    window.addEventListener('resize', offset);
+    bar.querySelector('.maj-x').addEventListener('click', function () {
+      try { localStorage.setItem('maj_rebrand_dismissed', '1'); } catch (e) {}
+      bar.parentNode && bar.parentNode.removeChild(bar);
+      if (hdr) hdr.style.top = '0';
+    });
+  }
+  if (document.body) place();
+  else document.addEventListener('DOMContentLoaded', place);
+})();

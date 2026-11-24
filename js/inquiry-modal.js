@@ -1,4 +1,4 @@
-/* Markato Autos Japan — site-wide inquiry modal.
+/* Tirhon Autos Limited — site-wide inquiry modal.
    Opens the full inquiry form as an overlay (no page navigation).
    Triggered ONLY for model-specific inquiries: model-card "Request Options"
    buttons and any element with [data-inquiry] (which carry a vehicle model).
@@ -39,8 +39,8 @@
   var formHTML =
     '<form id="im-form" class="cp-form" novalidate>' +
       '<input type="hidden" name="access_key" value="4848df2e-42c1-448a-afcf-14a50f017425">' +
-      '<input type="hidden" name="subject" id="im-subject" value="Inquiry: Markato Autos Japan website">' +
-      '<input type="hidden" name="from_name" value="Markato Autos Japan website">' +
+      '<input type="hidden" name="subject" id="im-subject" value="Inquiry: Tirhon Autos Limited website">' +
+      '<input type="hidden" name="from_name" value="Tirhon Autos Limited website">' +
       '<input type="hidden" name="action_needed" value="Engage on WhatsApp within 2 hours. Send 10+ real photos of available units matching customer criteria + personalized quote with total landed cost.">' +
       '<input type="hidden" name="lead_score" value="MEDIUM (site-wide inquiry modal)">' +
       '<input type="hidden" name="page_url" id="im-page-url" value="">' +
@@ -142,11 +142,11 @@
         mSel.insertBefore(o, mSel.options[1] || null);
       }
       mSel.value = model;
-      bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Markato Autos Japan website';
+      bd.querySelector('#im-subject').value = 'Inquiry: ' + model + '. Tirhon Autos Limited website';
       bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     } else {
       mSel.selectedIndex = 0;
-      bd.querySelector('#im-subject').value = 'Inquiry: General. Markato Autos Japan website';
+      bd.querySelector('#im-subject').value = 'Inquiry: General. Tirhon Autos Limited website';
       bd.querySelector('#im-success-msg').textContent = 'Thank you for inquiring about our luxury inventory. Your request has been routed to our specialist team: Joe in Nairobi (Kenya operations) and Rafael Iwazaki at GOONET Exchange in Hamamatsu, Japan (JUMVEA-registered, since 1996). One of us will reply shortly with full availability and specs.';
     }
     bd.querySelector('#im-page-url').value = window.location.href;
@@ -244,11 +244,11 @@
   });
 })();
 
-/* ---- Site-wide rebrand notice bar (BestCars254 -> Markato Autos Japan) ---- */
+/* ---- Site-wide rebrand notice bar (BestCars254 -> Tirhon Autos Limited) ---- */
 (function () {
   if (window.__majRebrandBar) return;
   window.__majRebrandBar = true;
-  try { if (localStorage.getItem('maj_rebrand_dismissed') === '1') return; } catch (e) {}
+  try { if (localStorage.getItem('tal_rebrand_dismissed') === '1') return; } catch (e) {}
 
   var css =
     '.maj-rebrand-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#B8861B,#F2D982,#B8861B);color:#171310;border-bottom:1px solid #8a6d1f;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 42px 10px 16px;font-family:Inter,system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.45;text-align:center}' +
@@ -268,7 +268,7 @@
   bar.className = 'maj-rebrand-bar';
   bar.setAttribute('role', 'note');
   bar.innerHTML =
-    '<span><strong>BestCars254 is now Markato Autos Japan.</strong> Same trusted team in Japan &amp; Kenya &mdash; a stronger name. <a href="' + home + '">Learn more</a></span>' +
+    '<span><strong>BestCars254 is now Tirhon Autos Limited.</strong> Same trusted team in Japan &amp; Kenya &mdash; a stronger name. <a href="' + home + '">Learn more</a></span>' +
     '<button class="maj-x" type="button" aria-label="Dismiss">&times;</button>';
 
   function place() {
@@ -279,7 +279,7 @@
     offset();
     window.addEventListener('resize', offset);
     bar.querySelector('.maj-x').addEventListener('click', function () {
-      try { localStorage.setItem('maj_rebrand_dismissed', '1'); } catch (e) {}
+      try { localStorage.setItem('tal_rebrand_dismissed', '1'); } catch (e) {}
       bar.parentNode && bar.parentNode.removeChild(bar);
       if (hdr) hdr.style.top = '0';
     });
